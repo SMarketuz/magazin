@@ -1,12 +1,12 @@
-const Auth = require('../model/user')
 const express = require('express')
 const router = express.Router()
+const Auth = require('../model/user')
 
 
 
 
 router.post('/new', async (req, res) => {
-    const user = await Auth.findOne({username: req.body.usernam})
+    const user = await Auth.findOne({username: req.body.username})
     if(user) return res.status(400).send('bunday user mavjud')
     if(!req.body.name) 
         return res.status(400).send("Malumot to'liq emas")
