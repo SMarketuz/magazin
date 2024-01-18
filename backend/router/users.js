@@ -1,34 +1,29 @@
-const express = require('express')
-const router = express.Router()
-const Auth = require('../model/user')
+const express = require('express');
+const router = express.Router();
+const {User} = require('../model/user')
+const bcrypt = require('bcrypt')
 
 
+router.post('/create' ,async (req , res) => {
 
+    const validateUserName = await User.findOne({
+        username: req.body.username
+    })
+    if(validateUserName)
+        return res.status(400).send('Siz oldin ro\'yxatdan o\'tgansiz')
+    const salt = await bcrypt.genSalt()
+    const hashPassword = await bcrypt.hash(req.body.password , salt)
 
-router.post('/new', async (req, res) => {
-    const user = await Auth.findOne({username: req.body.username})
-    if(user) return res.status(400).send('bunday user mavjud')
-    if(!req.body.name) 
-        return res.status(400).send("Malumot to'liq emas")
-    if(!req.body.username) 
-        return res.status(400).send("Malumot to'liq emas")
-    if(!req.body.password) 
-        return res.status(400).send("Malumot to'liq emas")
-
-
-    let createUser = await new Auth({
+    const user = new User({
         name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
+        username: req.body.username,
+        password: hashPassword
     })
 
-    await createUser.save()
-    res.send(createUser)
-})
-
-router.get('/get', async (req, res) => {
-    const getData = await Auth.find()
-    res.send(getData)
+    await user.save()
+    res.json({
+        message: 'Foidalanuvchi yaratildi'
+    })
 })
 
 
