@@ -19,6 +19,11 @@ export default function Register() {
                     'name': value.name,
                     'username': value.username,
                     'password': value.password,
+                },{
+                    headers: {
+                        "ngrok-skip-browser-warning": true,
+                        "Access-Control-Allow-Origin": "*",
+                      }
                 })
                 .then((res) =>{
                     setValue({name: '', email: '', password: ''}),

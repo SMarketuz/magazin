@@ -18,10 +18,8 @@ router.post('/upload',async (req , res) => {
             console.log('File saqlanmadi');
         } else {
             const im = new Upload({
-                file: {
-                    data: req.file.filename,
-                    contentType: 'image/jpg'|| 'image/png'
-                }
+                file: req.file.filename,
+                contentType: 'image/*'
             })
 
             im.save()
@@ -37,6 +35,11 @@ router.post('/upload',async (req , res) => {
             })
         }
     })
+})
+
+router.get('/get' , async (req , res) => {
+    const file = await Upload.find()
+    res.send(file)
 })
 
 
