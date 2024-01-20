@@ -1,41 +1,70 @@
 import React, { useState } from 'react'
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Box, useDisclosure, Button, Input, Text, Alert } from '@chakra-ui/react'
-import { FaEye, FaEyeSlash,  } from "react-icons/fa";
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton,useToast , Box, useDisclosure, Button, Input, Text, Alert } from '@chakra-ui/react'
+import { FaEye, FaEyeSlash, } from "react-icons/fa";
 import { GoPerson } from 'react-icons/go';
 import axios from 'axios';
 import { api } from '../api';
 
 
 export default function Register() {
-    const [toast, setToast] = useState(false)
+    const toast = useToast()
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [show, setShow] = React.useState(false)
-    const [value, setValue] = useState({name:'', username:'', password:''})
-    const [value1, setValue1] = useState({ username:'', password:''})
+    const [value, setValue] = useState({ name: '', username: '', password: '' })
+    const [value1, setValue1] = useState({ username: '', password: '' })
     const handleClick = () => setShow(!show)
     // headers: {
     //     "ngrok-skip-browser-warning": true,
     //     "Access-Control-Allow-Origin": "*",
     //   }
-    console.log(value.name , value.password , value.username);
+    console.log(value.name, value.password, value.username);
 
     const [register, setRegister] = useState(false);
-    
+
     const handleRegister = () => {
-        axios.post(`${api}api/auth/user/create` , {
+        axios.post(`${api}api/auth/user/create`, {
             'name': value.name,
             'username': value.username,
             'password': value.password
-        } , {
+        }, {
             headers: {
                 "ngrok-skip-browser-warning": true,
                 "Access-Control-Allow-Origin": "*",
             }
         }).then((res) => {
-            console.log(res.data);
+            toast({
+                description: `${res.data.message}`,
+                status: 'success',
+                position:'top-right',
+                duration: 3000,
+                isClosable: true,
+              })
+              setRegister(false)
         })
     }
-   
+
+    // login 
+    const handleLogin = () => {
+        axios.post(`${api}api/auth/login`, {
+            'username': value1.username,
+            'password': value1.password
+        }, {
+            headers: {
+                "ngrok-skip-browser-warning": true,
+                "Access-Control-Allow-Origin": "*",
+            }
+        }).then((res) => {
+            localStorage.setItem('token', res.data.token);
+            toast({
+                description: `${res.data.message}`,
+                status: 'success',
+                position:'top-right',
+                duration: 3000,
+                isClosable: true,
+              })
+        })
+    }
+
     return (
 
 
@@ -43,6 +72,7 @@ export default function Register() {
 
             {/* <BreadcrumbLink pl='10px' onClick={onOpen} display={{ xl: 'none', md: 'none', base: 'block' }}>Регистрация</BreadcrumbLink> */}
             <Box display={{ xl: 'block', md: 'block', base: 'none' }} onClick={onOpen}>  <GoPerson size={30} /></Box>
+            <Box display={{ xl: 'none', md: 'none', base: 'block' }} onClick={onOpen} fontSize='20x'>Ro'yhatdan O'tish</Box>
 
 
             {register ?
@@ -55,10 +85,10 @@ export default function Register() {
                         <ModalBody>
                             <form action="">
                                 <Box display='flex' flexDirection='column' gap='30px'>
-                                    <Input onChange={(e) => setValue({...value , name: e.target.value})} value={value.name} placeholder='Ism' />
-                                    <Input  onChange={(e) => setValue({...value , username: e.target.value})} value={value.username} placeholder='Username' />
+                                    <Input onChange={(e) => setValue({ ...value, name: e.target.value })} value={value.name} placeholder='Ism' />
+                                    <Input onChange={(e) => setValue({ ...value, username: e.target.value })} value={value.username} placeholder='Username' />
                                     <Box display='flex' alignItems='center'>
-                                        <Input onChange={(e) => setValue({...value , password: e.target.value})}value={value.password} pr='2.5rem' type={show ? 'text' : 'password'} placeholder='Enter password' />
+                                        <Input onChange={(e) => setValue({ ...value, password: e.target.value })} value={value.password} pr='2.5rem' type={show ? 'text' : 'password'} placeholder='Enter password' />
                                         <Button h='2.75rem' size='sm' onClick={handleClick}>{show ? <FaEyeSlash /> : <FaEye />}</Button>
                                     </Box>
                                     <Box display='flex' alignItems='center' justifyContent='center' mt='40px' gap='10px'>
@@ -82,24 +112,22 @@ export default function Register() {
                         <ModalBody>
                             <form action="">
                                 <Box display='flex' flexDirection='column' gap='30px'>
-                                    <Input   onChange={(e) => setValue1({...value1 , username: e.target.value})} placeholder='Username' type='name' />
+                                    <Input onChange={(e) => setValue1({ ...value1, username: e.target.value })} placeholder='Username' type='name' />
                                     <Box display='flex' alignItems='center'>
-                                        <Input   onChange={(e) => setValue1({...value1 , password: e.target.value})} pr='2.5rem' type={show ? 'text' : 'password'} placeholder='Enter password' />
+                                        <Input onChange={(e) => setValue1({ ...value1, password: e.target.value })} pr='2.5rem' type={show ? 'text' : 'password'} placeholder='Enter password' />
                                         <Button h='2.75rem' size='sm' onClick={handleClick}>{show ? <FaEyeSlash /> : <FaEye />}</Button>
                                     </Box>
                                     <Box display='flex' alignItems='center' justifyContent='center' mt='40px' gap='10px'>
                                         <Text>Accountingiz yo'qmi? </Text>
                                         <Text onClick={() => setRegister(true)} color='blue' cursor='pointer'>Ro'yhatdan o'tish</Text>
                                     </Box>
-                                    <Button bg='#01579B' color='white'>Kirish</Button> </Box>
+                                    <Button bg='#01579B' color='white' onClick={handleLogin}>Kirish</Button> </Box>
                             </form>
                         </ModalBody>
                     </ModalContent>
                 </Modal>
             }
-                {toast && (<Alert sx={{ position: 'fixed', top: '0', right: '0', borderRadius: '8px', w: '400px', bg: '#2FF924', color: 'white' }}>
-                This is a success alert — check it out!
-            </Alert>)}
+
         </Box>
 
 
