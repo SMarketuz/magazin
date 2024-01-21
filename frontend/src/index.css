@@ -11,25 +11,46 @@
   position: relative;
   transition: all 0.5s ease;
 }
-
-.thin_hover:hover {
-  .thin {
-    display: block;
+.phone_hover:hover{
+  .phone_menu{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 10px;
   }
-  .thin_icon{
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
+  .phone_menu input{
+    width: 150px;
+    justify-content: center;
   }
 }
 
+
+.thin_hover:hover {
+  .thin {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .thin_icon {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+  }
+}
 .thin {
   display: none;
   position: absolute;
   color: #01579b;
-  padding: 20px;
+  padding: 30px;
   transform: translateX(-200px);
   overflow-y: scroll;
   width: 250px;
+  height: 200px;
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.2);
 
@@ -44,3 +65,7 @@
     gap: 40px;
   }
 }
+.thin::-webkit-scrollbar{
+  display: none;
+}
+
