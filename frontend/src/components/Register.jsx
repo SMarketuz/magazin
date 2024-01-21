@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton,useToast , Box, useDisclosure, Button, Input, Text, Alert } from '@chakra-ui/react'
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useToast, Box, useDisclosure, Button, Input, Text, Alert } from '@chakra-ui/react'
 import { FaEye, FaEyeSlash, } from "react-icons/fa";
-import { GoPerson } from 'react-icons/go';
 import axios from 'axios';
 import { api } from '../api';
 
@@ -17,10 +16,11 @@ export default function Register() {
     //     "ngrok-skip-browser-warning": true,
     //     "Access-Control-Allow-Origin": "*",
     //   }
-    console.log(value.name, value.password, value.username);
+    // console.log(value.name, value.password, value.username);
+
 
     const [register, setRegister] = useState(false);
-
+    // sign 
     const handleRegister = () => {
         axios.post(`${api}api/auth/user/create`, {
             'name': value.name,
@@ -35,14 +35,13 @@ export default function Register() {
             toast({
                 description: `${res.data.message}`,
                 status: 'success',
-                position:'top-right',
+                position: 'top-right',
                 duration: 3000,
                 isClosable: true,
-              })
-              setRegister(false)
+            })
+            setRegister(false)
         })
     }
-
     // login 
     const handleLogin = () => {
         axios.post(`${api}api/auth/login`, {
@@ -58,10 +57,10 @@ export default function Register() {
             toast({
                 description: `${res.data.message}`,
                 status: 'success',
-                position:'top-right',
+                position: 'top-right',
                 duration: 3000,
                 isClosable: true,
-              })
+            })
         })
     }
 
@@ -69,10 +68,9 @@ export default function Register() {
 
 
         <Box>
-
             {/* <BreadcrumbLink pl='10px' onClick={onOpen} display={{ xl: 'none', md: 'none', base: 'block' }}>Регистрация</BreadcrumbLink> */}
-            <Box display={{ xl: 'block', md: 'block', base: 'none' }} onClick={onOpen}>  <GoPerson size={30} /></Box>
-            <Box display={{ xl: 'none', md: 'none', base: 'block' }} onClick={onOpen} fontSize='20x'>Ro'yhatdan O'tish</Box>
+            {/* <Box display={{ xl: 'block', md: 'block', base: 'none' }} onClick={onOpen}>  <GoPerson size={30} /></Box> */}
+            <Text onClick={onOpen} fontSize={'15px'}>Ro'yhatdan O'tish</Text>
 
 
             {register ?
@@ -127,9 +125,6 @@ export default function Register() {
                     </ModalContent>
                 </Modal>
             }
-
         </Box>
-
-
     )
 }

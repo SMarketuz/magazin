@@ -11,21 +11,21 @@ export default function Shop() {
     const [natija, setNatija] = useState(0)
 
     const plus = () => {
-        setVal(val + 3600)
+        setVal(val + 360000)
         setNatija(natija + 1)
     }
     const mnus = () => {
         if (0 < val) {
-            setVal(val - 3600)
+            setVal(val - 360000)
             setNatija(natija - 1)
         } else {
             setVal(val - 0)
         }
     }
+
     return (
         <Box>
-
-            <Box display={{ xl: 'block', md: 'block', base: 'none' }}><FiShoppingCart size={30} onClick={onOpen} style={{ cursor: 'pointer' }} /></Box>
+            <Box display={{ xl: 'block', md: 'block', base: 'none' }}><FiShoppingCart size={35} onClick={onOpen} style={{ cursor: 'pointer' }} /></Box>
             <Box display={{ xl: 'none', md: 'none', base: 'block' }}><FiShoppingCart size={35} onClick={onOpen} color='white' style={{ cursor: 'pointer' }} /></Box>
 
 
@@ -45,14 +45,14 @@ export default function Shop() {
                                     <Text>{natija}</Text>
                                     <Button onClick={plus}>+</Button>
                                 </Box>
-                                <Text>3600грн</Text>
+                                <Text>360 000sum</Text>
                                 <Button color='red'><MdDeleteForever size={20} /></Button>
                             </Box>
 
                             {/* obshi  */}
                             <Box display='flex' alignItems='center' justifyContent='end' gap='15px' mt='70px' mb='110px'>
-                                <Text color='#060F42' fontSize='28px' fontWeight='700'>{val}</Text>
-                                <Button bg='#06A56C' color='white'>ОФОРМИТЬ ЗАКАЗ</Button>
+                                <Text color='#060F42' fontSize='28px' fontWeight='700'>{val}sum</Text>
+                                <Button bg='#06A56C' color='white'>Zakaz Berish</Button>
                             </Box>
                         </Box>
                     </ModalBody>
