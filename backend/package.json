@@ -24,6 +24,7 @@
     "textflow.js": "^0.1.4"
   },
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "node-sass": "^18.18.2"
   }
 }
