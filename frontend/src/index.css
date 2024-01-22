@@ -1,0 +1,70 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;800;900&display=swap);
+
+* {
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.thin_hover {
+  position: relative;
+  transition: all 0.5s ease;
+}
+.phone_hover:hover{
+  .phone_menu{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  .phone_menu input{
+    width: 150px;
+    justify-content: center;
+  }
+}
+
+
+.thin_hover:hover {
+  .thin {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .thin_icon {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+  }
+}
+.thin {
+  display: none;
+  position: absolute;
+  color: #01579b;
+  padding: 30px;
+  transform: translateX(-200px);
+  overflow-y: scroll;
+  width: 250px;
+  height: 200px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+
+  .del {
+    color: red;
+  }
+
+  .thin_child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+}
+.thin::-webkit-scrollbar{
+  display: none;
+}
+

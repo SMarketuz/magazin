@@ -1,1 +1,1 @@
-export const api = 'https://3c9f-188-113-199-198.ngrok-free.app '
+export const api = 'http://192.168.195.237:5000/'
