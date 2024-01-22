@@ -7,7 +7,7 @@ function App() {
   return (
       <Box>
         <Navbar/>
-        <Hero
+        <Hero/>
       </Box>
   )
 }
