@@ -9,12 +9,15 @@
 
 .thin_hover {
   position: relative;
-  transition: all 0.5s ease;
+  z-index: 999;
 }
-.phone_hover:hover{
-  .phone_menu{
+
+.phone_hover:hover {
+  .phone_menu {
     display: flex;
     position: absolute;
+    z-index: 999;
+    background: white;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -22,12 +25,12 @@
     padding: 30px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
-  .phone_menu input{
+
+  .phone_menu input {
     width: 150px;
     justify-content: center;
   }
 }
-
 
 .thin_hover:hover {
   .thin {
@@ -36,11 +39,13 @@
     flex-direction: column;
     gap: 10px;
   }
+
   .thin_icon {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 2px;
   }
 }
+
 .thin {
   display: none;
   position: absolute;
@@ -51,8 +56,9 @@
   width: 250px;
   height: 200px;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.2);
-
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: white !important;
+  
   .del {
     color: red;
   }
@@ -61,10 +67,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     gap: 40px;
   }
 }
-.thin::-webkit-scrollbar{
+
+.thin::-webkit-scrollbar {
   display: none;
 }
-
