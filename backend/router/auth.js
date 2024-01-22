@@ -16,7 +16,7 @@ router.post('/login' , async (req , res) => {
     if(!hash)
         return res.status(400).send('Username yoki parol xato!');
 
-    const token = jwt.sign({user: user} , config.get('tokenKey'))
+    const token = jwt.sign({user: user} ,'modevco')
 
     res.json({
         token: token,
