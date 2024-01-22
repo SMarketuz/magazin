@@ -1,14 +1,7 @@
 const express = require('express');
 const app = express();
-const antpoint = require('./server/antpoints')
 const cors = require('cors')
-const mongoose = require('mongoose');
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Headers","*")
-    res.header("Access-Control-Allow-Headers","Access-Control-Allow-Headers")
-    next()
-})
 app.use(cors({
     origin: '*',
     credentials: true,
