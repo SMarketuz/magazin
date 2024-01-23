@@ -12,12 +12,6 @@ export default function Register() {
     const [value, setValue] = useState({ name: '', username: '', password: '' })
     const [value1, setValue1] = useState({ username: '', password: '' })
     const handleClick = () => setShow(!show)
-    // headers: {
-    //     "ngrok-skip-browser-warning": true,
-    //     "Access-Control-Allow-Origin": "*",
-    //   }
-    // console.log(value.name, value.password, value.username);
-
 
     const [register, setRegister] = useState(false);
     // sign 
@@ -70,7 +64,7 @@ export default function Register() {
         <Box>
             {/* <BreadcrumbLink pl='10px' onClick={onOpen} display={{ xl: 'none', md: 'none', base: 'block' }}>Регистрация</BreadcrumbLink> */}
             {/* <Box display={{ xl: 'block', md: 'block', base: 'none' }} onClick={onOpen}>  <GoPerson size={30} /></Box> */}
-            <Text onClick={onOpen} fontSize={'15px'}  cursor='pointer'>Ro'yhatdan O'tish</Text>
+            <Text onClick={onOpen} fontSize={'15px'} cursor='pointer'>Ro'yhatdan O'tish</Text>
 
 
             {register ?
