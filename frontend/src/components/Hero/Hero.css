@@ -13,14 +13,14 @@
 
 .swiper-pagination-bullet {
   background: white !important;
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
 }
 
 .swiper-pagination-bullet-active {
   background: #3182ce !important;
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
 }
 
 .swiper-pagination {
@@ -40,9 +40,15 @@
 .carusel .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 400px;
+  position: relative;
+  z-index: 99;
   object-fit: cover !important;
 }
+.carusel .image{
+  filter: brightness(60%) !important;
+}
+
 
 .texts {
   overflow-y: scroll;

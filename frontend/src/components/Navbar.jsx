@@ -27,9 +27,9 @@ export default function Navbar() {
 
 
     return (
-        <Box>
+        <Box width='100%'>
             {/* for blue  */}
-            <Box display={{ xl: 'flex', md: 'flex', base: 'none' }} alignItems='center' justifyContent='space-between' px='25px' py='10px' bg='#060F42' color='white'>
+            <Box display={{ xl: 'flex', md: 'flex', base: 'none' }} width='100%' alignItems='center' justifyContent='space-between' px='25px' py='10px' bg='#060F42' color='white'>
                 <Box display='flex' alignItems='center' gap='30px'>
                     <HiOutlineBars3 size={30} onClick={onOpen} ref={btnRef} style={{ cursor: 'pointer' }} />
                     <Text>Aksiya</Text>
@@ -52,7 +52,7 @@ export default function Navbar() {
             {/* for navbar  */}
             <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px='10px' justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
                 <img src={logo} alt="" />
-                <Button display="flex" alignItems='center' bg='#06A56C' color='white' padding='9px 12px' gap={4} fontSize={{ xl: '18px', md: '15px', }} className="catalogbtn" border='none'>Tovarlar Bo'limi<GrAppsRounded size={20} /></Button>
+                <Button display="flex" alignItems='center' bg='#06A56C' color='white' padding='9px 12px' gap={4} fontSize={{ xl: '18px', md: '15px', }} className="catalogbtn" border='none'><Text display={{xl:'block', md:'none'}}>Tovarlar Bo'limi</Text><GrAppsRounded size={20} /></Button>
                 <Box display='flex' alignItems='center' border='1px solid gray' >
                     <Input variant='unstyled' width={{ xl: '750px', md: '158px', base: '20px' }} pl='40px' placeholder="Qidirish" />
                     <Button colorScheme='blue' borderRadius='0px' color='white'><GoSearch size={25} /></Button>

@@ -6,7 +6,7 @@ import 'swiper/css/free-mode';
 import { Autoplay, Pagination, FreeMode, Navigation } from 'swiper/modules';
 import './Hero.css'
 import 'swiper/css/navigation';
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Button, Text } from '@chakra-ui/react'
 import { FiSmartphone } from "react-icons/fi";
 import { PiMonitorLight, PiPrinterLight, PiSpeakerHifiBold } from "react-icons/pi";
 import { GiProcessor, GiLaptop, GiPriceTag, GiAchievement } from "react-icons/gi";
@@ -27,9 +27,10 @@ export default function Hero() {
     useEffect(() => {
         axios.get(`${api}api/carusel/image/get`)
             .then((res) => {
-                setData(res.data)
+                setData(res.data.data)
             })
     }, [api]);
+    console.log(data);
     return (
         <Box display='flex' mt={{ xl: '35px', md: '0px' }} justifyContent='space-around' alignItems='start'>
             {/* for texts  */}
@@ -65,11 +66,21 @@ export default function Hero() {
                         modules={[Autoplay, Pagination]}
                         className="mySwiper"
                     >
-                        {data.map((item) => (
-                            <SwiperSlide><img src={item.url} alt="" /></SwiperSlide>
+                        {data && data.map((item) => (
+                            <Box>
+                                <SwiperSlide>
+                                    <Box position='absolute' display='flex' alignItems='start' textAlign='start' justifyContent='start' flexDirection={'column'} top='50px' left='50px' zIndex='999' lineHeight={{ md: '60px', base: '50px' }} >
+                                        <Text fontSize='48px' fontWeight='700' color='white'>{item.title}</Text>
+                                        <Text fontSize='18px' fontWeight='500' textAlign={'left'} color={'white'}>{item.desc}</Text>
+                                        <Button bg='#E93232' width='165px' height='43px'  _hover='none' color='white'>Ko'rish</Button>
+                                    </Box>
+                                    <img className='image' src={item.url} alt="" />
+                                </SwiperSlide>
+                            </Box>
                         ))}
                     </Swiper>
                 </Box>
+
 
                 {/* for small img cards  */}
                 <Box mt='80px'>
