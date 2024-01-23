@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -18,8 +18,18 @@ import { FaCar, FaAddressCard } from "react-icons/fa";
 import { FcManager } from "react-icons/fc";
 import { banner } from '../../assets';
 import Word from '../Text';
+import { api } from '../../api';
+import axios from 'axios'
 
 export default function Hero() {
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        axios.get(`${api}api/carusel/image/get`)
+            .then((res) => {
+                setData(res.data)
+            })
+    }, [api]);
     return (
         <Box display='flex' mt={{ xl: '35px', md: '0px' }} justifyContent='space-around' alignItems='start'>
             {/* for texts  */}
@@ -55,10 +65,9 @@ export default function Hero() {
                         modules={[Autoplay, Pagination]}
                         className="mySwiper"
                     >
-                        <SwiperSlide><img src={banner} alt="" /></SwiperSlide>
-                        <SwiperSlide><img src={banner} alt="" /></SwiperSlide>
-                        <SwiperSlide><img src={banner} alt="" /></SwiperSlide>
-                        <SwiperSlide><img src={banner} alt="" /></SwiperSlide>
+                        {data.map((item) => (
+                            <SwiperSlide><img src={item.url} alt="" /></SwiperSlide>
+                        ))}
                     </Swiper>
                 </Box>
 

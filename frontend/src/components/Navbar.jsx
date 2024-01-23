@@ -50,7 +50,7 @@ export default function Navbar() {
             </Box>
 
             {/* for navbar  */}
-            <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px='20px' justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
+            <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px='10px' justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
                 <img src={logo} alt="" />
                 <Button display="flex" alignItems='center' bg='#06A56C' color='white' padding='9px 12px' gap={4} fontSize={{ xl: '18px', md: '15px', }} className="catalogbtn" border='none'>Tovarlar Bo'limi<GrAppsRounded size={20} /></Button>
                 <Box display='flex' alignItems='center' border='1px solid gray' >
