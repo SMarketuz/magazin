@@ -70,7 +70,7 @@ export default function Register() {
         <Box>
             {/* <BreadcrumbLink pl='10px' onClick={onOpen} display={{ xl: 'none', md: 'none', base: 'block' }}>Регистрация</BreadcrumbLink> */}
             {/* <Box display={{ xl: 'block', md: 'block', base: 'none' }} onClick={onOpen}>  <GoPerson size={30} /></Box> */}
-            <Text onClick={onOpen} fontSize={'15px'} cursor='pointer'>Ro'yhatdan O'tish</Text>
+            <Text onClick={onOpen} fontSize={'15px'}  cursor='pointer'>Ro'yhatdan O'tish</Text>
 
 
             {register ?
