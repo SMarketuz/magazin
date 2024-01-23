@@ -17,7 +17,7 @@ import { CgData } from "react-icons/cg";
 import { FaCar, FaAddressCard } from "react-icons/fa";
 import { FcManager } from "react-icons/fc";
 import { banner } from '../../assets';
-
+import Word from '../Text';
 
 export default function Hero() {
     return (
@@ -25,29 +25,19 @@ export default function Hero() {
             {/* for texts  */}
             <Box display={{ xl: 'flex', md: 'none', base: 'none' }} flexDirection='column' gap='12px' className='texts'>
                 {/* 1 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><GiProcessor size={25} /><Text fontSize='17px' fontWeight={600}>Kopmlekt PC</Text></Box><IoIosArrowForward /></Box>
-                {/* 2 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><PiMonitorLight size={25} /><Text fontSize='17px' fontWeight={600}>Ekran</Text></Box><IoIosArrowForward /></Box>
-                {/* 3 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><FaComputer size={25} /><Text fontSize='17px' fontWeight={600}>Kompyuter</Text></Box><IoIosArrowForward /></Box>
-                {/* 4 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><IoIosLaptop size={25} /><Text fontSize='17px' fontWeight={600}>Noutbook</Text></Box><IoIosArrowForward /></Box>
-                {/* 5 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><IoGameControllerOutline size={25} /><Text fontSize='17px' fontWeight={600}>O'yin Pulti</Text></Box><IoIosArrowForward /></Box>
-                {/* 6 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><GiLaptop size={25} /><Text fontSize='17px' fontWeight={600}>Komplekt Noutbook</Text></Box><IoIosArrowForward /></Box>
-                {/* 7 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><FiSmartphone size={25} /><Text fontSize='17px' fontWeight={600}>Planshet</Text></Box><IoIosArrowForward /></Box>
-                {/* 8 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><PiPrinterLight size={25} /><Text fontSize='17px' fontWeight={600}>Printerlar</Text></Box><IoIosArrowForward /></Box>
-                {/* 9 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><PiSpeakerHifiBold size={25} /><Text fontSize='17px' fontWeight={600}>Akustik Kolokanlar</Text></Box><IoIosArrowForward /></Box>
-                {/* 10 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><CgData size={25} /><Text fontSize='17px' fontWeight={600}>Tarmoq Apparati</Text></Box><IoIosArrowForward /></Box>
-                {/* 11 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><CgData size={25} /><Text fontSize='17px' fontWeight={600}>Tarmoq Apparati</Text></Box><IoIosArrowForward /></Box>
-                {/* 12 */}
-                <Box className='active' width='350px' display='flex' alignItems='center' justifyContent='space-between' padding='12px'><Box display='flex' alignItems='center' gap={2}><CgData size={25} /><Text fontSize='17px' fontWeight={600}>Tarmoq Apparati</Text></Box><IoIosArrowForward /></Box>
+                <Word icon={<GiProcessor size={25} />} text={'PC Komplekt'} />
+                <Word icon={<PiMonitorLight size={25} />} text={'Ekran'} />
+                <Word icon={<FaComputer size={25} />} text={'Kompyuter'} />
+                <Word icon={<IoIosLaptop size={25} />} text={'Noutbook'} />
+                <Word icon={<IoGameControllerOutline size={25} />} text={"O'yin Pulti"} />
+                <Word icon={<GiLaptop size={25} />} text={'Komplekt Noutbook'} />
+                <Word icon={<FiSmartphone size={25} />} text={'Planshet'} />
+                <Word icon={<PiPrinterLight size={25} />} text={'Printerlar'} />
+                <Word icon={<PiSpeakerHifiBold size={25} />} text={'Akustik Kolokanlar'} />
+                <Word icon={<CgData size={25} />} text={'Tarmoq Apparati'} />
+                <Word icon={<GiProcessor size={25} />} text={'PC Komplekt'} />
+                <Word icon={<GiProcessor size={25} />} text={'PC Komplekt'} />
+                <Word icon={<GiProcessor size={25} />} text={'PC Komplekt'} />
             </Box>
 
             {/* for swipper  */}
@@ -55,7 +45,6 @@ export default function Hero() {
                 {/* for big img  */}
                 <Box>
                     <Swiper
-
                         autoplay={{
                             delay: 2500,
                             disableOnInteraction: false,
