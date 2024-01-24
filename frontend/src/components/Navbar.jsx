@@ -17,13 +17,15 @@ import { IoIosArrowDown } from "react-icons/io";
 export default function Navbar() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [show, setShow] = useState(false)
+    const btnRef = React.useRef()
+    
     const showinp = () => {
         setShow(true)
     }
+
     const hidewinp = () => {
         setShow(false)
     }
-    const btnRef = React.useRef()
 
 
     return (
@@ -52,24 +54,24 @@ export default function Navbar() {
             {/* for navbar  */}
             <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px='10px' justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
                 <img src={logo} alt="" />
-                <Button display="flex" alignItems='center' bg='#06A56C' color='white' padding='9px 12px' gap={4} fontSize={{ xl: '18px', md: '15px', }} className="catalogbtn" border='none'><Text display={{xl:'block', md:'none'}}>Tovarlar Bo'limi</Text><GrAppsRounded size={20} /></Button>
+                <Button display="flex" alignItems='center' bg='#06A56C' color='white' padding='9px 12px' gap={4} fontSize={{ xl: '18px', md: '15px', }} className="catalogbtn" border='none'><Text display={{ xl: 'block', md: 'none' }}>Tovarlar Bo'limi</Text><GrAppsRounded size={20} /></Button>
                 <Box display='flex' alignItems='center' border='1px solid gray' >
                     <Input variant='unstyled' width={{ xl: '750px', md: '158px', base: '20px' }} pl='40px' placeholder="Qidirish" />
                     <Button colorScheme='blue' borderRadius='0px' color='white'><GoSearch size={25} /></Button>
                 </Box>
                 <Box className='phone_hover'>
-                    <Text display='flex' alignItems='center' gap='2px'>+998(91) 041-14-25<IoIosArrowDown size={20}/></Text>
+                    <Text display='flex' alignItems='center' gap='2px'>+998(91) 041-14-25<IoIosArrowDown size={20} /></Text>
                     <Box className='phone_menu' display='none' >
-                    <Text className='phone_icon'>+998(91) 041-14-25</Text>
-                    <Text className='phone_icon'>+998(91) 041-14-25</Text>
-                    <Text className='phone_icon'>+998(91) 041-14-25</Text>
-                    <hr/>
-                  <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='10px'>
-                  <Text>Biz bilan Bog'laning</Text>
-                    <Input placeholder='Ismingiz'/>
-                    <Input placeholder='Nomeringiz'/>
-                    <Button bg='#01579B' color='white'>Yuborish</Button>
-                  </Box>
+                        <Text className='phone_icon'>+998(91) 041-14-25</Text>
+                        <Text className='phone_icon'>+998(91) 041-14-25</Text>
+                        <Text className='phone_icon'>+998(91) 041-14-25</Text>
+                        <hr />
+                        <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='10px'>
+                            <Text>Biz bilan Bog'laning</Text>
+                            <Input placeholder='Ismingiz' />
+                            <Input placeholder='Nomeringiz' />
+                            <Button bg='#01579B' color='white'>Yuborish</Button>
+                        </Box>
                     </Box>
                 </Box>
                 <img src={line} alt="" />
