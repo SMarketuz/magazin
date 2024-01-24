@@ -24,12 +24,16 @@ export default function Hero() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        axios.get(`${api}api/carusel/image/get`)
+        axios.get(`${api}api/carusel/image/get` , {
+            headers: {
+                "ngrok-skip-browser-warning": true,
+                "Access-Control-Allow-Origin": "*",
+            }
+        })
             .then((res) => {
                 setData(res.data.data)
             })
     }, [api]);
-    console.log(data);
     return (
         <Box display='flex' mt={{ xl: '35px', md: '0px' }} justifyContent='space-around' alignItems='start'>
 

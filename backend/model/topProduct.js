@@ -1,8 +1,5 @@
 const { default: mongoose } = require("mongoose");
 
-
-
-
 const topProductSchema = new mongoose.Schema({
     badge: String,
     image: String,
