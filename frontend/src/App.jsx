@@ -6,7 +6,7 @@ function App() {
 
   return (
       <Box>
-        <Navbar/>
+        <Navbar />
         <Hero/>
       </Box>
   )
