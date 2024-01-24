@@ -12,11 +12,15 @@ import {
   TableContainer,
 } from '@chakra-ui/react'
 import ModalProp from '../components/modal/modal'
+import Search from '../components/search/search'
 const GetTopProduct = () => {
   
 
   return (
     <Box w={'95%'} m={'auto'} pl={'300px'} pt={'50px'}>
+      <Box w={'100%'}>
+        <Search />
+      </Box>
       <TableContainer border={'1px solid #ADADAE'} rounded={'12px'}>
         <Table variant='striped'>
           <Thead>
