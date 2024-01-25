@@ -19,12 +19,15 @@ import { FcManager } from "react-icons/fc";
 import Word from '../Text';
 import { api } from '../../api';
 import axios from 'axios'
+import Loader from '../loader/Loader';
 
 export default function Hero() {
     const [data, setData] = useState([])
+    const [loader, setLoader] = useState(true)
+
 
     useEffect(() => {
-        axios.get(`${api}api/carusel/image/get` , {
+        axios.get(`${api}api/carusel/image/get`, {
             headers: {
                 "ngrok-skip-browser-warning": true,
                 "Access-Control-Allow-Origin": "*",
@@ -32,6 +35,7 @@ export default function Hero() {
         })
             .then((res) => {
                 setData(res.data.data)
+                setLoader(false)
             })
     }, [api]);
     return (
@@ -55,35 +59,35 @@ export default function Hero() {
                 <Word icon={<GiProcessor size={25} />} text={'PC Komplekt'} />
             </Box>
 
-            {/* for swipper  */}
             <Box className='carusel' w={{ xl: '76%', md: '100%', base: '100%' }} >
                 {/* for big img  */}
-                <Box>
-                    <Swiper
-                        autoplay={{
-                            delay: 2500,
-                            disableOnInteraction: false,
-                        }}
-                        pagination={{
-                            dynamicBullets: true,
-                        }}
-                        modules={[Autoplay, Pagination]}
-                        className="mySwiper"
-                    >
-                        {data && data.map((item) => (
-                            <Box>
-                                <SwiperSlide>
-                                    <Box position='absolute' display='flex' alignItems='start' textAlign='start' justifyContent='start' flexDirection={'column'} top='50px' left='50px' zIndex='999' lineHeight={{ md: '60px', base: '50px' }} >
-                                        <Text fontSize='48px' fontWeight='700' color='white'>{item.title}</Text>
-                                        <Text fontSize='18px' fontWeight='500' textAlign={'left'} color={'white'}>{item.desc}</Text>
-                                        <Button bg='#E93232' width='165px' height='43px' _hover='none' color='white'>Ko'rish</Button>
-                                    </Box>
-                                    <img className='image' src={item.url} alt="" />
-                                </SwiperSlide>
-                            </Box>
-                        ))}
-                    </Swiper>
-                </Box>
+                {loader ? <Loader /> :
+                    <Box>
+                        <Swiper
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                dynamicBullets: true,
+                            }}
+                            modules={[Autoplay, Pagination]}
+                            className="mySwiper"
+                        >
+                            {data && data.map((item) => (
+                                <Box>
+                                    <SwiperSlide>
+                                        <Box position='absolute' display='flex' alignItems='start' textAlign='start' justifyContent='start' flexDirection={'column'} top='50px' left='50px' zIndex='999' lineHeight={{ md: '60px', base: '50px' }} >
+                                            <Text fontSize='48px' fontWeight='700' color='white'>{item.title}</Text>
+                                            <Text fontSize='18px' fontWeight='500' textAlign={'left'} color={'white'}>{item.desc}</Text>
+                                            <Button bg='#E93232' width='165px' height='43px' _hover='none' color='white'>Ko'rish</Button>
+                                        </Box>
+                                        <img className='image' src={item.url} alt="" />
+                                    </SwiperSlide>
+                                </Box>
+                            ))}
+                        </Swiper>
+                    </Box>}
 
 
                 {/* for small img cards  */}
@@ -120,6 +124,7 @@ export default function Hero() {
                     </Swiper>
                 </Box>
             </Box>
+                        
         </Box>
     )
 }
