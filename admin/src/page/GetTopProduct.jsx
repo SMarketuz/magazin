@@ -29,6 +29,7 @@ const GetTopProduct = () => {
       setData(res.data)
     })
   }, [api])
+  console.log(data);
 
   return (
     <Box w={'95%'} m={'auto'} pl={'300px'} pt={'50px'}>
