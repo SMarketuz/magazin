@@ -3,7 +3,7 @@ import './index.css'
 import NavForAdmin from './components/navForAdmin'
 import SidebarForAdmin from './components/sidebarForAdmin'
 import AddTopProduct from './page/addTopProduct'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import GetTopProduct from './page/GetTopProduct'
 import Users from './page/users'
 import { useState } from 'react'
@@ -12,8 +12,9 @@ import { useToast } from '@chakra-ui/react'
 function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(false);
   const toast = useToast()
+  const navigate = useNavigate()
 
 
   const Login = () => {
@@ -25,6 +26,7 @@ function App() {
         duration: 3000,
         isClosable: true,
       })
+      navigate('/admin/topProduct-add')
     }else{
       toast({
         description: "Parol yoki username hato",
@@ -38,13 +40,18 @@ function App() {
   return (
     <>
     {login ?<Box w={'100%'} minH={'100vh'} bg={'lightblue'} display={'flex'}>
-        <Box  w={{md:'400px', base: '90%'}} rounded={'10px'} bg={'white'} display={'flex'} alignItems={'center'} flexDirection={'column'} justifyContent={'center'} h={'300px'} m={'auto'} >
+        <Box  w={{md:'400px', base: '90%'}} rounded={'10px'} bg={'white'} display={'flex'} alignItems={'center'} flexDirection={'column'} justifyContent={'center'} h={'300px'} m={'auto'}>
           <Text fontSize={'25px'} fontWeight={'600'} pb={'30px'}>Admin</Text>
-          <Box display={'flex'} flexDirection={'column'} w={'100%'} gap={'2rem'}>
-            <Input onChange={(e) => setUsername(e.target.value )} value={username} w={'90%'} m={'auto'} placeholder='username'/>
-            <Input onChange={(e) => setPassword(e.target.value )} value={password} w={'90%'} m={'auto'} placeholder='password'/>
-          <Button onClick={Login} w={'90%'} m={'auto'} bg={'gray.300'}>Login</Button>
-          </Box>
+          <form style={{width: '100%'}} onSubmit={(e) => {
+            e.preventDefault();
+            Login()
+          }}>
+            <Box display={'flex'} flexDirection={'column'} w={'100%'} gap={'2rem'}>
+              <Input onChange={(e) => setUsername(e.target.value )} value={username} w={'90%'} m={'auto'} placeholder='username'/>
+              <Input onChange={(e) => setPassword(e.target.value )} value={password} w={'90%'} m={'auto'} placeholder='password'/>
+              <Button type='submit' onClick={Login} w={'90%'} m={'auto'} bg={'gray.300'}>Login</Button>
+            </Box>
+          </form>
         </Box>
     </Box> 
     :
