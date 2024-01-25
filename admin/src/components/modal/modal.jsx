@@ -12,7 +12,7 @@ import {
   Button,
 } from '@chakra-ui/react'
 
-const ModalProp = () => {
+const ModalProp = ({maxInform}) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box>
@@ -25,7 +25,7 @@ const ModalProp = () => {
           <ModalHeader>To'liq ma'lumot</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, laboriosam! Eveniet aspernatur voluptas perferendis accusantium sed. Deserunt ipsa repellat consequatur?
+            {maxInform}
           </ModalBody>
 
           <ModalFooter>

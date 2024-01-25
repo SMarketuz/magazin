@@ -19,7 +19,6 @@ router.post('/post' , async (req , res) => {
 
 router.get('/get' , async (req , res) => {
     const image = await Carusel.find()
-
     res.json({data: image})
 })
 

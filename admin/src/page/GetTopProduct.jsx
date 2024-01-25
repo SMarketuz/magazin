@@ -13,8 +13,23 @@ import {
 } from '@chakra-ui/react'
 import ModalProp from '../components/modal/modal'
 import Search from '../components/search/search'
+import { useEffect, useState } from 'react'
+import { api } from '../api/api'
+import axios from 'axios'
 const GetTopProduct = () => {
-  
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    axios.get(`${api}/api/product/get-data`, {
+      headers: {
+        "ngrok-skip-browser-warning": true,
+        "Access-Control-Allow-Origin": "*",
+    }
+    }).then((res) => {
+      setData(res.data)
+    })
+  }, [api])
+  console.log(data);
 
   return (
     <Box w={'95%'} m={'auto'} pl={'300px'} pt={'50px'}>
@@ -36,21 +51,23 @@ const GetTopProduct = () => {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td>1</Td>
-              <Td><Avatar /></Td>
-              <Td>Monitor</Td>
-              <Td>Monitor 19razmer Qora</Td>
-              <Td>
-               <ModalProp   />
-              </Td>
-              <Td>25.4</Td>
-              <Td>25.4</Td>
-              <Td>
-                <Button color={'white'} _hover='' bg={'red'} variant='solid' mr={2}><DeleteIcon /></Button>
-                <Button color={'white'} _hover='' bg={'green.300'} variant='solid'><EditIcon /></Button>
-              </Td>
-            </Tr>
+            {data.map((item, i) =>(
+              <Tr>
+                <Td>{i + 1}</Td>
+                <Td><Avatar src={item.image} /></Td>
+                <Td>{item.name}</Td>
+                <Td>{item.informationMin}</Td>
+                <Td>
+                <ModalProp maxInform={item.informationMax}  />
+                </Td>
+                <Td>{item.currentCost}</Td>
+                <Td>{item.date.slice(0, 7)}</Td>
+                <Td>
+                  <Button color={'white'} _hover='' bg={'red'} variant='solid' mr={2}><DeleteIcon /></Button>
+                  <Button color={'white'} _hover='' bg={'green.300'} variant='solid'><EditIcon /></Button>
+                </Td>
+              </Tr>
+            ))}
           </Tbody>
         </Table>
       </TableContainer>
