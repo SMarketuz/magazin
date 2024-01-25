@@ -35,7 +35,7 @@ const SidebarForAdmin = () => {
           </AccordionItem>
 
           {/* 3*/}
-          <AccordionItem style={{ border: 'none' , paddingTop: '10px'}}>
+          {/* <AccordionItem style={{ border: 'none' , paddingTop: '10px'}}>
             <h2>
               <AccordionButton>
                 <Box pr={'5px'} fontWeight={'500'} fontSize={'20px'} color={'white'} textAlign="left">
@@ -48,7 +48,7 @@ const SidebarForAdmin = () => {
               <Link to={'/admin/product-add'}><Text>Add product</Text></Link>
               <Link to={'/admin/product-get'}><Text>Get product</Text></Link>
             </AccordionPanel>
-          </AccordionItem>
+          </AccordionItem> */}
 
         </Accordion>
 

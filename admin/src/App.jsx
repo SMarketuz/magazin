@@ -40,7 +40,7 @@ function App() {
   return (
     <>
     {login ?<Box w={'100%'} minH={'100vh'} bg={'lightblue'} display={'flex'}>
-        <Box  w={{md:'400px', base: '90%'}} rounded={'10px'} bg={'white'} display={'flex'} alignItems={'center'} flexDirection={'column'} justifyContent={'center'} h={'300px'} m={'auto'} >
+        <Box  w={{md:'400px', base: '90%'}} rounded={'10px'} bg={'white'} display={'flex'} alignItems={'center'} flexDirection={'column'} justifyContent={'center'} h={'300px'} m={'auto'}>
           <Text fontSize={'25px'} fontWeight={'600'} pb={'30px'}>Admin</Text>
           <Box display={'flex'} flexDirection={'column'} w={'100%'} gap={'2rem'}>
             <Input onChange={(e) => setUsername(e.target.value )} value={username} w={'90%'} m={'auto'} placeholder='username'/>
@@ -56,8 +56,8 @@ function App() {
         <Routes>
           <Route path='/admin/topProduct-add' element={<AddTopProduct />} />
           <Route path='/admin/topProduct-get' element={<GetTopProduct />} />
-          <Route path='/admin/product-add' element={<AddProduct />} />
-          <Route path='/admin/product-get' element={<GetProduct />} />
+          {/* <Route path='/admin/product-add' element={<AddProduct />} />
+          <Route path='/admin/product-get' element={<GetProduct />} /> */}
           <Route path='/admin/users' element={<Users />} />
         </Routes>
       </Box>
