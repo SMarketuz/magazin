@@ -25,7 +25,6 @@ router.get('/get' , async (req , res) => {
 
 
 router.delete('/delete/:id', async (req, res) => {
-
     const data = await Carusel.deleteOne({_id: req.params.id})
     res.json({
         message: "Ma'lumot O'chirildi",

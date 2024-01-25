@@ -16,6 +16,7 @@ const ModalProp = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box>
+     
       <Td onClick={onOpen} color={'blue'} cursor={'pointer'} textDecoration={'underline'}>To'liq Ma'lumot</Td>
 
       <Modal isOpen={isOpen}  onClose={onClose}>
