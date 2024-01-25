@@ -1,0 +1,1 @@
+export const api = 'https://76df-188-113-221-255.ngrok-free.app'

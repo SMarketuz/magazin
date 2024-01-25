@@ -1,16 +1,18 @@
 const { default: mongoose } = require("mongoose");
 
-
-
-
 const topProductSchema = new mongoose.Schema({
     badge: String,
     image: String,
     name: String,
-    information: String,
+    informationMin: String,
+    informationMax: String,
     originalCost: String,
     currentCost: String,
-    rate: String
+    rate: String,
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 

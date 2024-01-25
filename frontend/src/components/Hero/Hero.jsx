@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -6,22 +6,37 @@ import 'swiper/css/free-mode';
 import { Autoplay, Pagination, FreeMode, Navigation } from 'swiper/modules';
 import './Hero.css'
 import 'swiper/css/navigation';
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Button, Text } from '@chakra-ui/react'
 import { FiSmartphone } from "react-icons/fi";
 import { PiMonitorLight, PiPrinterLight, PiSpeakerHifiBold } from "react-icons/pi";
 import { GiProcessor, GiLaptop, GiPriceTag, GiAchievement } from "react-icons/gi";
-import { IoIosArrowForward, IoIosLaptop } from "react-icons/io";
+import { IoIosLaptop } from "react-icons/io";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { FaComputer, FaHandshake, FaScrewdriverWrench } from "react-icons/fa6";
 import { CgData } from "react-icons/cg";
 import { FaCar, FaAddressCard } from "react-icons/fa";
 import { FcManager } from "react-icons/fc";
-import { banner } from '../../assets';
 import Word from '../Text';
+import { api } from '../../api';
+import axios from 'axios'
 
 export default function Hero() {
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        axios.get(`${api}api/carusel/image/get` , {
+            headers: {
+                "ngrok-skip-browser-warning": true,
+                "Access-Control-Allow-Origin": "*",
+            }
+        })
+            .then((res) => {
+                setData(res.data.data)
+            })
+    }, [api]);
     return (
         <Box display='flex' mt={{ xl: '35px', md: '0px' }} justifyContent='space-around' alignItems='start'>
+
             {/* for texts  */}
             <Box display={{ xl: 'flex', md: 'none', base: 'none' }} flexDirection='column' gap='12px' className='texts'>
                 {/* 1 */}
@@ -55,12 +70,21 @@ export default function Hero() {
                         modules={[Autoplay, Pagination]}
                         className="mySwiper"
                     >
-                        <SwiperSlide><img src={banner} alt="" /></SwiperSlide>
-                        <SwiperSlide><img src={banner} alt="" /></SwiperSlide>
-                        <SwiperSlide><img src={banner} alt="" /></SwiperSlide>
-                        <SwiperSlide><img src={banner} alt="" /></SwiperSlide>
+                        {data && data.map((item) => (
+                            <Box>
+                                <SwiperSlide>
+                                    <Box position='absolute' display='flex' alignItems='start' textAlign='start' justifyContent='start' flexDirection={'column'} top='50px' left='50px' zIndex='999' lineHeight={{ md: '60px', base: '50px' }} >
+                                        <Text fontSize='48px' fontWeight='700' color='white'>{item.title}</Text>
+                                        <Text fontSize='18px' fontWeight='500' textAlign={'left'} color={'white'}>{item.desc}</Text>
+                                        <Button bg='#E93232' width='165px' height='43px' _hover='none' color='white'>Ko'rish</Button>
+                                    </Box>
+                                    <img className='image' src={item.url} alt="" />
+                                </SwiperSlide>
+                            </Box>
+                        ))}
                     </Swiper>
                 </Box>
+
 
                 {/* for small img cards  */}
                 <Box mt='80px'>

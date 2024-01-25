@@ -12,12 +12,6 @@ export default function Register() {
     const [value, setValue] = useState({ name: '', username: '', password: '' })
     const [value1, setValue1] = useState({ username: '', password: '' })
     const handleClick = () => setShow(!show)
-    // headers: {
-    //     "ngrok-skip-browser-warning": true,
-    //     "Access-Control-Allow-Origin": "*",
-    //   }
-    // console.log(value.name, value.password, value.username);
-
 
     const [register, setRegister] = useState(false);
     // sign 
