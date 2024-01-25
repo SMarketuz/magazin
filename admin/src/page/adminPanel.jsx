@@ -5,8 +5,6 @@ import AddTopProduct from './addTopProduct'
 const AdminPanel = () => {
   return (
     <Box>
-        
-
         <Box>
           <AddTopProduct />
         </Box>

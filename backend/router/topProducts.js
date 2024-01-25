@@ -3,7 +3,7 @@ const router = express.Router();
 const TopProduct = require('../model/topProduct');
 
 
-router.post('create', async(req, res) => {
+router.post('/create', async(req, res) => {
     const topProduct = await TopProduct.findOne({
         name: req.body.name
     })
@@ -38,7 +38,7 @@ router.post('create', async(req, res) => {
 })
 
 
-router.get('get', async(req, res) => {
+router.get('/get', async(req, res) => {
     const getData = await TopProduct.find()
     res.send(getData)
 })

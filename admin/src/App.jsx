@@ -5,8 +5,6 @@ import SidebarForAdmin from './components/sidebarForAdmin'
 import AddTopProduct from './page/addTopProduct'
 import { Route, Routes } from 'react-router-dom'
 import GetTopProduct from './page/GetTopProduct'
-import GetProduct from './page/GetProduct'
-import AddProduct from './page/addProduct'
 import Users from './page/users'
 import { useState } from 'react'
 import { useToast } from '@chakra-ui/react'
@@ -19,7 +17,7 @@ function App() {
 
 
   const Login = () => {
-    if(username == 'abc123' && password == '12345679'){
+    if(username == 'aaa' && password == 'aaa'){
       setLogin(false)
       toast({
         description: "Kirdingiz",
@@ -56,8 +54,6 @@ function App() {
         <Routes>
           <Route path='/admin/topProduct-add' element={<AddTopProduct />} />
           <Route path='/admin/topProduct-get' element={<GetTopProduct />} />
-          <Route path='/admin/product-add' element={<AddProduct />} />
-          <Route path='/admin/product-get' element={<GetProduct />} />
           <Route path='/admin/users' element={<Users />} />
         </Routes>
       </Box>
