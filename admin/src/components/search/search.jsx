@@ -15,7 +15,7 @@ const Search = ({setSearch}) => {
 
             {/* for input search */}
             <Box width={'100%'}>
-                <input autoFocus  onChange={(e) => setSearch(e.target.value)}  style={{outline: 'none' , border: 'none' , width: '100%'}} type="text" placeholder='qidirish...' />
+                <input autoFocus onChange={(e) => setSearch(e.target.value)}  style={{outline: 'none' , border: 'none' , width: '100%'}} type="text" placeholder='qidirish...' />
             </Box>
         </Box>
     </Box>
