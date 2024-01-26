@@ -1,4 +1,4 @@
-import { Box, Text, Input, Button, Avatar, useDisclosure } from '@chakra-ui/react'
+import { Box, Text, Input, Button, Avatar, useDisclosure, SkeletonCircle, Skeleton } from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import {
   Table,
@@ -17,6 +17,8 @@ import { useEffect, useState } from 'react'
 import { api } from '../api/api'
 import axios from 'axios'
 const GetTopProduct = () => {
+  const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -27,6 +29,7 @@ const GetTopProduct = () => {
     }
     }).then((res) => {
       setData(res.data)
+      setLoading(false)
     })
   }, [api])
   console.log(data);
@@ -34,7 +37,7 @@ const GetTopProduct = () => {
   return (
     <Box w={'95%'} m={'auto'} pl={'300px'} pt={'50px'}>
       <Box w={'100%'}>
-        <Search />
+        <Search setSearch={setSearch} search={search} />
       </Box>
       <TableContainer border={'1px solid #ADADAE'} rounded={'12px'}>
         <Table variant='striped'>
@@ -50,8 +53,100 @@ const GetTopProduct = () => {
               <Th >Qo'shimcha</Th>
             </Tr>
           </Thead>
+          {loading ? <Tbody>
+              <Tr>
+                <Td><Skeleton height='20px' /></Td>
+                <Td><SkeletonCircle size='10' /></Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td>
+                <Skeleton height='20px' />
+                </Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td display={'flex'} alignItems={'center'} gap={'15px'}>
+                <Skeleton
+                  height='40px'
+                  bg='green.500'
+                  color='white'
+                  width={'45px'}
+                  fadeDuration={1}
+                  rounded={'8px'}
+                ></Skeleton>
+                 <Skeleton
+                  height='40px'
+                  bg='green.500'
+                  color='white'
+                  width={'45px'}
+                  fadeDuration={1}
+                  rounded={'8px'}
+                ></Skeleton>
+                </Td>
+              </Tr>
+              <Tr>
+                <Td><Skeleton height='20px' /></Td>
+                <Td><SkeletonCircle size='10' /></Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td>
+                <Skeleton height='20px' />
+                </Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td display={'flex'} alignItems={'center'} gap={'15px'}>
+                <Skeleton
+                  height='40px'
+                  bg='green.500'
+                  color='white'
+                  width={'45px'}
+                  fadeDuration={1}
+                  rounded={'8px'}
+                ></Skeleton>
+                 <Skeleton
+                  height='40px'
+                  bg='green.500'
+                  color='white'
+                  width={'45px'}
+                  fadeDuration={1}
+                  rounded={'8px'}
+                ></Skeleton>
+                </Td>
+              </Tr>
+              <Tr>
+                <Td><Skeleton height='20px' /></Td>
+                <Td><SkeletonCircle size='10' /></Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td>
+                <Skeleton height='20px' />
+                </Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td><Skeleton height='20px' /></Td>
+                <Td display={'flex'} alignItems={'center'} gap={'15px'}>
+                <Skeleton
+                  height='40px'
+                  bg='green.500'
+                  color='white'
+                  width={'45px'}
+                  fadeDuration={1}
+                  rounded={'8px'}
+                ></Skeleton>
+                 <Skeleton
+                  height='40px'
+                  bg='green.500'
+                  color='white'
+                  width={'45px'}
+                  fadeDuration={1}
+                  rounded={'8px'}
+                ></Skeleton>
+                </Td>
+              </Tr>
+          </Tbody>
+          :
           <Tbody>
-            {data.map((item, i) =>(
+            {data.filter((item) => {
+              return search.toLocaleLowerCase() === '' ? item : item.name.toLocaleLowerCase().includes(search)
+            }).map((item, i) =>(
               <Tr>
                 <Td>{i + 1}</Td>
                 <Td><Avatar src={item.image} /></Td>
@@ -68,7 +163,7 @@ const GetTopProduct = () => {
                 </Td>
               </Tr>
             ))}
-          </Tbody>
+          </Tbody>}
         </Table>
       </TableContainer>
 

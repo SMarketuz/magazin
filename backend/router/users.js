@@ -26,6 +26,11 @@ router.post('/create' ,async (req , res) => {
     })
 })
 
+router.get('/get-data', async(req, res) => {
+    const getData = await User.find()
+    res.send(getData)
+})
+
 
 
 module.exports = router
