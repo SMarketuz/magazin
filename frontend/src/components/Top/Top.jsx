@@ -1,15 +1,22 @@
 import { Alert, Badge, Box, Button, Img, Text, useToast } from '@chakra-ui/react'
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import './Top.css'
 import { PiScalesThin } from 'react-icons/pi';
-import { FaRegHeart } from 'react-icons/fa';
+import { FaRegHeart, FaStar } from 'react-icons/fa';
 import { tv } from '../../assets';
 import { FaArrowRightLong } from "react-icons/fa6";
+import axios from 'axios';
+import { api } from '../../api';
 export default function Top() {
   const [toast, setToast] = useState(false);
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    axios.get(`${api}`)
+  })
 
 
   const handleBuy = () => {
@@ -20,9 +27,14 @@ export default function Top() {
   }
   return (
 
-    <Box>
+    <Box mt={{ md: '90px', base: '0' }}>
+      <Box display='flex' alignItems={{ md: 'center', base: 'start' }} mt={{ md: '0', base: '70px' }} mb={{ md: '0', base: '40px' }} flexDirection={{ md: 'inherit', base: 'column' }} justifyContent='space-between' >
+        <Text fontSize='40px' fontWeight='700'>Top Mahsulotlar</Text>
+        <Text color='#01579B' display='flex' alignItems='center' gap={2} fontWeight='500'>Смотреть все товары<FaArrowRightLong /></Text>
+      </Box>
+
       {/* swipper 1 */}
-      <Box mt={{ xl: '70px', md: '210px', base: '70px' }}>
+      <Box mb={{ md: '20px', base: '70px' }}>
         <center>
           <Swiper
             slidesPerView={1}
@@ -54,7 +66,7 @@ export default function Top() {
           >
             {/* 1 */}
             <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
+              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' mb='2px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
                   <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
                   <Box display='flex' alignItems='center' gap={2}>
@@ -66,9 +78,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -87,9 +103,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -108,9 +128,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -129,9 +153,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -150,9 +178,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -171,9 +203,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -182,10 +218,8 @@ export default function Top() {
         </center>
       </Box>
 
-      <Box display='flex' alignItems='center' color='#01579B' fontWeight='500' justifyContent={{ xl: 'end', base: 'center' }} mt={12} >Смотреть все товары<FaArrowRightLong /></Box>
-
       {/* swipper 2 */}
-      <Box mt={{ xl: '20px', md: '210px', base: '70px' }}>
+      <Box mt={{ xl: '100px', md: '210px', base: '70px' }}>
         <center>
           <Swiper
             slidesPerView={1}
@@ -217,7 +251,7 @@ export default function Top() {
           >
             {/* 1 */}
             <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
+              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' mb='2px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
                   <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
                   <Box display='flex' alignItems='center' gap={2}>
@@ -229,9 +263,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -250,9 +288,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -271,9 +313,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -292,9 +338,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -313,9 +363,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -334,9 +388,13 @@ export default function Top() {
                 <Box textAlign='start'>
                   <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
                 </Box>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Text color='#060F42' fontSize='18px' fontWeight='700'>3500грн</Text>
+                  <Box textAlign={'start'}>
+                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
+                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
+                  </Box>
                   <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
