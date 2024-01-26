@@ -8,6 +8,8 @@ import GetTopProduct from './page/GetTopProduct'
 import Users from './page/users'
 import { useState } from 'react'
 import { useToast } from '@chakra-ui/react'
+import UpdateCategory from './page/updateCategory'
+import Home from './page/home'
 
 function App() {
   const [username, setUsername] = useState('');
@@ -39,6 +41,8 @@ function App() {
 
   return (
     <>
+
+    
     {login ?<Box w={'100%'} minH={'100vh'} bg={'lightblue'} display={'flex'}>
         <Box  w={{md:'400px', base: '90%'}} rounded={'10px'} bg={'white'} display={'flex'} alignItems={'center'} flexDirection={'column'} justifyContent={'center'} h={'300px'} m={'auto'}>
           <Text fontSize={'25px'} fontWeight={'600'} pb={'30px'}>Admin</Text>
@@ -58,10 +62,13 @@ function App() {
       <Box>
         <NavForAdmin />
         <SidebarForAdmin />
+        
         <Routes>
+          {/* <Route path='/' element={<Home />} /> */}
           <Route path='/admin/topProduct-add' element={<AddTopProduct />} />
           <Route path='/admin/topProduct-get' element={<GetTopProduct />} />
           <Route path='/admin/users' element={<Users />} />
+          <Route path='/admin/updateCategory/:id' element={<UpdateCategory />} />
         </Routes>
       </Box>
     }
