@@ -27,7 +27,6 @@ const AddTopProduct = () => {
       setValues({image: '',badge: '', name: '', inform: '', originalCost: '', currentCost: '', rate: ''})
     })
   }
-  console.log(values);
   return (
     <Box pl={'300px'} h={'92vh'} w={'100%'}>
       <Box w={'95%'} m={'auto'} pt={'30px'}>
