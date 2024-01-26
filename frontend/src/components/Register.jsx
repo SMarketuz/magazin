@@ -66,7 +66,6 @@ export default function Register() {
             {/* <Box display={{ xl: 'block', md: 'block', base: 'none' }} onClick={onOpen}>  <GoPerson size={30} /></Box> */}
             <Text onClick={onOpen} fontSize={'15px'} cursor='pointer'>Ro'yhatdan O'tish</Text>
 
-
             {register ?
                 // 1
                 <Modal isOpen={isOpen} onClose={onClose} >

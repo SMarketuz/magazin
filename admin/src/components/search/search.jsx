@@ -2,7 +2,7 @@ import { SearchIcon } from '@chakra-ui/icons'
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 
-const Search = ({setSearch, search}) => {
+const Search = ({setSearch}) => {
   return (
     <Box mb={5}>
         <Box border={'2px'} rounded={'10px'}  display={'flex'} alignItems={'center'} gap={5} borderColor={'gray.400'}>
@@ -15,7 +15,7 @@ const Search = ({setSearch, search}) => {
 
             {/* for input search */}
             <Box width={'100%'}>
-                <input onChange={(e) => setSearch(e.target.value)} value={search} style={{outline: 'none' , border: 'none' , width: '100%'}} type="text" placeholder='qidirish...' />
+                <input autoFocus onChange={(e) => setSearch(e.target.value)}  style={{outline: 'none' , border: 'none' , width: '100%'}} type="text" placeholder='qidirish...' />
             </Box>
         </Box>
     </Box>

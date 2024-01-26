@@ -16,8 +16,8 @@ router.post('/create-data', async(req, res) => {
             badge: req.body.badge,
             image: req.body.image,
             name: req.body.name,
-            informationMin: req.body.information,
-            informationMax: req.body.information,
+            informationMin: req.body.informationMin,
+            informationMax: req.body.informationMax,
             originalCost: req.body.originalCost,
             currentCost: req.body.currentCost,
             rate: req.body.rate
@@ -58,7 +58,16 @@ router.get('/get-data-byId/:id', async(req, res) => {
     }
 })
 
-router.put('/update-data/:id', async(req, res) => {
+router.post('/delete-data' , async (req , res) => {
+    const data = await TopProduct.deleteOne({_id: req.body.id})
+
+    res.json({
+        message: "Ma'lumot o'chirildi",
+        status: true
+    })
+})
+
+router.post('/update-data/:id', async(req, res) => {
     try {
         const getData = await TopProduct.updateOne({_id: req.params.id} , {
             $set: {

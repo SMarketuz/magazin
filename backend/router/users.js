@@ -26,11 +26,20 @@ router.post('/create' ,async (req , res) => {
     })
 })
 
+<<<<<<< HEAD
 router.get('/get-data', async(req, res) => {
     const getData = await User.find()
     res.send(getData)
 })
 
+=======
+router.get('/get-user' , async (req , res) => {
+    const data = await User.find();
+>>>>>>> 6fcd684ecdd57527d1b34ce8a2391def9db4eab1
 
+    res.json({
+        data: data
+    })
+})
 
 module.exports = router

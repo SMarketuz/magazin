@@ -59,6 +59,7 @@ export default function Navbar() {
                     <Input variant='unstyled' width={{ xl: '750px', md: '158px', base: '20px' }} pl='40px' placeholder="Qidirish" />
                     <Button colorScheme='blue' borderRadius='0px' color='white'><GoSearch size={25} /></Button>
                 </Box>
+                {/* telefon uchun  */}
                 <Box className='phone_hover'>
                     <Text display='flex' alignItems='center' gap='2px'>+998(91) 041-14-25<IoIosArrowDown size={20} /></Text>
                     <Box className='phone_menu' display='none' >
@@ -75,6 +76,7 @@ export default function Navbar() {
                     </Box>
                 </Box>
                 <img src={line} alt="" />
+                {/* ayri boshlash  */}
                 <Box display='flex' alignItems='center' justifyContent='space-between' w='10%'>
                     <Box className='thin_hover'>
                         <PiScalesThin size={40} className='thin_icon' />
@@ -183,11 +185,11 @@ export default function Navbar() {
 
                                 <Text fontSize='20px' pt='40px' pb='20px'>Bizni Kuzating</Text>
                                 <Box display='flex' alignItems='center' gap='10px'>
-                                    <FaInstagram size={35} style={{ background: 'white', padding: '5px', color: 'black', borderRadius: '50%' }} />
-                                    <FaFacebookF size={35} style={{ background: 'white', padding: '5px', color: 'black', borderRadius: '50%' }} />
-                                    <FaTelegramPlane size={35} style={{ background: 'white', padding: '5px', color: 'black', borderRadius: '50%' }} />
-                                    <FaYoutube size={35} style={{ background: 'white', padding: '5px', color: 'black', borderRadius: '50%' }} />
-                                    <FaLinkedin style={{ background: 'white', color: 'black', width: '40px', padding: '5px', height: '40px', borderRadius: '50%' }} />
+                                    <FaInstagram size={35} style={{ background: 'white', width: '38px', padding: '5px', height: '38px', color: '#C32ACE', borderRadius: '50%' }} />
+                                    <FaFacebookF size={35} style={{ background: 'white', width: '38px', padding: '5px', height: '38px', color: '#0E68CE', borderRadius: '50%' }} />
+                                    <FaTelegramPlane size={35} style={{ background: 'white', width: '38px', padding: '5px', height: '38px', color: '#3182CE', borderRadius: '50%' }} />
+                                    <FaYoutube size={35} style={{ background: 'white', width: '38px', padding: '5px', height: '38px', color: 'red', borderRadius: '50%' }} />
+                                    <FaLinkedin style={{ background: 'white', color: '#0E68CE', width: '40px', padding: '5px', height: '40px', borderRadius: '50%' }} />
                                 </Box>
                             </Accordion>
                         </DrawerBody>
