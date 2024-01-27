@@ -19,11 +19,11 @@ export default function Game() {
     }
 
     return (
-        <Box className='background'>
+        <Box className='background' mt='70px'>
             {/* top text  */}
             <Box position='relative' display='flex' justifyContent='space-between' alignItems='center' padding='8'>
                 <Divider width='12%' />
-                <Text color='white' fontSize={{ xl: '35px', md: '25px', base: '19px' }} fontWeight='500'>GAME ZONE</Text>
+                <Text color='white' fontSize={{ xl: '35px', md: '25px', base: '16px' }} fontWeight='500'>GAME ZONE</Text>
                 <Divider width='52%' />
             </Box>
 
@@ -195,7 +195,7 @@ export default function Game() {
             </Box>
 
             {/* kate3gory . */}
-            <Text>Категории для геймеров</Text>
+            <Text fontSize='26px' pl={{xl:'80px', md:'50px', base:'20px'}} mt='60px' mb='20px' color='white' position='relative'>Категории для геймеров</Text>
             <Box position='relative' px='50px'>
                 <Swiper
                     slidesPerView={1}
@@ -219,7 +219,7 @@ export default function Game() {
                             spaceBetween: 50,
                         },
                         1250: {
-                            slidesPerView: 5,
+                            slidesPerView: 6,
                             spaceBetween: 50,
                         },
                     }}

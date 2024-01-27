@@ -7,15 +7,14 @@ import { Autoplay, Pagination, FreeMode, Navigation } from 'swiper/modules';
 import './Hero.css'
 import 'swiper/css/navigation';
 import { Box, Button, Text } from '@chakra-ui/react'
-import { FiSmartphone } from "react-icons/fi";
-import { PiMonitorLight, PiPrinterLight, PiSpeakerHifiBold } from "react-icons/pi";
-import { GiProcessor, GiLaptop, GiPriceTag, GiAchievement } from "react-icons/gi";
+import { PiMonitorLight, PiSpeakerHifiBold } from "react-icons/pi";
+import { GiLaptop, GiPriceTag, GiAchievement } from "react-icons/gi";
 import { IoIosLaptop } from "react-icons/io";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { FaComputer, FaHandshake, FaScrewdriverWrench } from "react-icons/fa6";
 import { CgData } from "react-icons/cg";
-import { FaCar, FaAddressCard } from "react-icons/fa";
-import { FcManager } from "react-icons/fc";
+import { FaPassport } from "react-icons/fa";
+import { FcElectronics, FcInTransit, FcOnlineSupport, FcPrint, FcTabletAndroid } from "react-icons/fc";
 import Word from '../Text';
 import { api } from '../../api';
 import axios from 'axios'
@@ -44,19 +43,18 @@ export default function Hero() {
             {/* for texts  */}
             <Box display={{ xl: 'flex', md: 'none', base: 'none' }} flexDirection='column' gap='12px' className='texts'>
                 {/* 1 */}
-                <Word icon={<GiProcessor size={25} />} text={'PC Komplekt'} />
-                <Word icon={<PiMonitorLight size={25} />} text={'Ekran'} />
-                <Word icon={<FaComputer size={25} />} text={'Kompyuter'} />
-                <Word icon={<IoIosLaptop size={25} />} text={'Noutbook'} />
-                <Word icon={<IoGameControllerOutline size={25} />} text={"O'yin Pulti"} />
+                <Word icon={<FcElectronics size={25} />} text={'PC Komplekt'} />
+                <Word icon={<PiMonitorLight size={25} color='#3182CE' />} text={'Ekran'} />
+                <Word icon={<FaComputer size={25} color='#3182CE' />} text={'Kompyuter'} />
+                <Word icon={<IoIosLaptop size={25} color='gray' />} text={'Noutbook'} />
+                <Word icon={<IoGameControllerOutline size={25} color='red' />} text={"O'yin Pulti"} />
                 <Word icon={<GiLaptop size={25} />} text={'Komplekt Noutbook'} />
-                <Word icon={<FiSmartphone size={25} />} text={'Planshet'} />
-                <Word icon={<PiPrinterLight size={25} />} text={'Printerlar'} />
+                <Word icon={<FcTabletAndroid size={25} />} text={'Planshet'} />
+                <Word icon={<FcPrint size={25} />} text={'Printerlar'} />
                 <Word icon={<PiSpeakerHifiBold size={25} />} text={'Akustik Kolokanlar'} />
-                <Word icon={<CgData size={25} />} text={'Tarmoq Apparati'} />
-                <Word icon={<GiProcessor size={25} />} text={'PC Komplekt'} />
-                <Word icon={<GiProcessor size={25} />} text={'PC Komplekt'} />
-                <Word icon={<GiProcessor size={25} />} text={'PC Komplekt'} />
+                <Word icon={<CgData size={25} color='green' />} text={'Tarmoq Apparati'} />
+                <Word icon={<CgData size={25} color='green' />} text={'Tarmoq Apparati'} />
+                <Word icon={<CgData size={25} color='green' />} text={'Tarmoq Apparati'} />
             </Box>
 
             <Box className='carusel' w={{ xl: '76%', md: '100%', base: '100%' }} >
@@ -114,17 +112,17 @@ export default function Hero() {
                         modules={[FreeMode, Navigation]}
                         className="mySwiper"
                     >
-                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FaScrewdriverWrench size={45} /><Text fontSize='15px' color='#060F42'>Tekin Texnika Tuzatish</Text></SwiperSlide>
-                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FaHandshake size={45} /><Text fontSize='15px' color='#060F42'>Toʻlov 4oy 0% kredit</Text></SwiperSlide>
-                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FaCar size={45} /><Text fontSize='15px' color='#060F42'>Tekin Dostavka</Text></SwiperSlide>
-                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FaAddressCard size={45} /><Text fontSize='15px' color='#060F42'>Rasmiy kafolat</Text></SwiperSlide>
-                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><GiPriceTag size={45} /><Text fontSize='15px' color='#060F42'>Arzon Narx</Text></SwiperSlide>
-                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><GiAchievement size={45} /><Text fontSize='15px' color='#060F42'>11 yildan Bozorda</Text></SwiperSlide>
-                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FcManager size={45} /><Text fontSize='15px' color='#060F42'>Professional Maslahat</Text></SwiperSlide>
+                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FaScrewdriverWrench size={45} color='#AAABAD' /><Text fontSize='15px' color='#060F42'>Tekin Texnika Tuzatish</Text></SwiperSlide>
+                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FaHandshake size={45} color='#FDC2A4' /><Text fontSize='15px' color='#060F42'>Toʻlov 4oy 0% kredit</Text></SwiperSlide>
+                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FcInTransit size={45} /><Text fontSize='15px' color='#060F42'>Tekin Dostavka</Text></SwiperSlide>
+                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FaPassport size={45} color='#D15B5B' /><Text fontSize='15px' color='#060F42'>Rasmiy kafolat</Text></SwiperSlide>
+                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><GiPriceTag size={45} color='#F18D1F' /><Text fontSize='15px' color='#060F42'>Arzon Narx</Text></SwiperSlide>
+                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><GiAchievement size={45} color='#EFBD26' /><Text fontSize='15px' color='#060F42'>11 yildan Bozorda</Text></SwiperSlide>
+                        <SwiperSlide style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}><FcOnlineSupport size={45} /><Text fontSize='15px' color='#060F42'>Professional Maslahat</Text></SwiperSlide>
                     </Swiper>
                 </Box>
             </Box>
-                        
+
         </Box>
     )
 }

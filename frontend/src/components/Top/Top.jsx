@@ -1,4 +1,4 @@
-import { Alert, Badge, Box, Button, Img, Text, useToast } from '@chakra-ui/react'
+import { Alert, Badge, Box, Button, Img, Text, Toast, useToast } from '@chakra-ui/react'
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
@@ -11,20 +11,28 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import axios from 'axios';
 import { api } from '../../api';
 export default function Top() {
-  const [toast, setToast] = useState(false);
+  const toast = useToast()
   const [data, setData] = useState([])
 
   useEffect(() => {
     axios.get(`${api}`)
   })
 
-
   const handleBuy = () => {
-    setToast(true)
-    setTimeout(() => {
-      setToast(false)
-    }, 2000);
+    toast({
+      description: 'Mahsulot Qo\'shildi',
+      position: 'top-right',
+      isClosable: true,
+      status: 'success',
+      duration: '4000'
+    })
   }
+  // const handleBuy = () => {
+  //   setToast(true)
+  //   setTimeout(() => {
+  //     setToast(false)
+  //   }, 2000);
+  // }
   return (
 
     <Box mt={{ md: '90px', base: '0' }}>
@@ -403,9 +411,6 @@ export default function Top() {
         </center>
       </Box>
 
-      {toast && (<Alert sx={{ position: 'fixed', zIndex: '1000', bottom: '0', left: '0', borderRadius: '8px', w: '400px', bg: '#2FF924', color: 'white' }}>
-        Siz bu mahsulotni savatga qo'shidingiz
-      </Alert>)}
     </Box>
   )
 }

@@ -6,6 +6,12 @@
   margin: 0;
   box-sizing: border-box;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
+body::-webkit-scrollbar-track {
+  color: green;
+}
 
 .thin_hover {
   position: relative;
@@ -58,7 +64,7 @@
   border-radius: 8px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background: white !important;
-  
+
   .del {
     color: red;
   }
