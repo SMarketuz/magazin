@@ -1,4 +1,4 @@
-import { Box, Text, Input, Button } from "@chakra-ui/react";
+import { Box, Text, Input, Button, SkeletonText, Skeleton } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 import {
   Table,
@@ -16,6 +16,7 @@ import axios from "axios";
 import { api } from "../api/api";
 const Users = () => {
   const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     axios.get(`${api}/api/auth/user/get-user`, {
@@ -25,6 +26,7 @@ const Users = () => {
     }
     }).then((res) => {
       setData(res.data.data)
+      setLoading(false)
     })
   }, [api])
   console.log(data);
@@ -36,9 +38,57 @@ const Users = () => {
             <Tr>
               <Th>Name</Th>
               <Th>Username</Th>
-              <Th>Delete</Th>
+              <Th isNumeric>Delete</Th>
             </Tr>
           </Thead>
+          {loading ? 
+          <Tbody>
+            <Tr>
+              <Td><Skeleton height='20px' /></Td>
+              <Td><Skeleton height='20px' /></Td>
+              <Td isNumeric display={'flex'} alignItems={'flex-end'} justifyContent={'flex-end'}>
+                <Skeleton
+                  height='40px'
+                  bg='green.500'
+                  color='white'
+                  width={'50px'}
+                  fadeDuration={1}
+                  rounded={'8px'}
+                ></Skeleton>
+              </Td>
+            </Tr>
+            <Tr>
+              <Td><Skeleton height='20px' /></Td>
+              <Td><Skeleton height='20px' /></Td>
+              <Td isNumeric display={'flex'} alignItems={'flex-end'} justifyContent={'flex-end'}>
+                {" "}
+                <Skeleton
+                  height='40px'
+                  bg='green.500'
+                  color='white'
+                  width={'50px'}
+                  fadeDuration={1}
+                  rounded={'8px'}
+                ></Skeleton>
+              </Td>
+            </Tr>
+            <Tr>
+              <Td><Skeleton height='20px' /></Td>
+              <Td><Skeleton height='20px' /></Td>
+              <Td isNumeric display={'flex'} alignItems={'flex-end'} justifyContent={'flex-end'}>
+                {" "}
+                <Skeleton
+                  height='40px'
+                  bg='green.500'
+                  color='white'
+                  width={'50px'}
+                  fadeDuration={1}
+                  rounded={'8px'}
+                ></Skeleton>
+              </Td>
+            </Tr>
+          </Tbody>
+          :
           <Tbody>
             {data.map((item) =>(
             <Tr>
@@ -53,7 +103,8 @@ const Users = () => {
             </Tr>
 
             ))}
-          </Tbody>
+          </Tbody>}
+          
         </Table>
       </TableContainer>
     </Box>
