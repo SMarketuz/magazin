@@ -20,7 +20,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const GetTopProduct = () => {
-  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([])
   const toast = useToast()
@@ -177,13 +176,8 @@ const GetTopProduct = () => {
           </Tbody>
           :
           <Tbody>
-<<<<<<< HEAD
-            {data.filter((item) => {
-              return search.toLocaleLowerCase() === '' ? item : item.name.toLocaleLowerCase().includes(search)
-=======
             {data.filter(item => {
               return search.toLowerCase() === '' ? item : item.name.toLowerCase().includes(search) ? item : item.date.slice(0, 10).includes(search) ? item : item.badge.toLowerCase().includes(search)
->>>>>>> 6fcd684ecdd57527d1b34ce8a2391def9db4eab1
             }).map((item, i) =>(
               <Tr>
                 <Td>{i + 1}</Td>
