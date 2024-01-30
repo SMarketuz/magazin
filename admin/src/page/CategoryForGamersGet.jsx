@@ -31,10 +31,10 @@ const CategoryForGamersGet = () => {
         setData(res.data)
         setLoading(false)
       })
-    }, [api])
+    }, [apiRoute])
 
-
-
+console.log(apiRoute);  
+  
 
     const handleDelete = (id) => {
         axios.post(`${api}/api/product/delete-data`, {
@@ -71,11 +71,11 @@ const CategoryForGamersGet = () => {
         <Tabs pt={'30px'}>
             <TabList>
 				<Tab onClick={() => setApiRoute('keyboard')}>Keyboard</Tab>
-				<Tab onClick={() => setApiRoute('mouse')}>Mouse</Tab>
-				<Tab onClick={() => setApiRoute('accessory')}>Accessory</Tab>
-				<Tab onClick={() => setApiRoute('laptop')}>Laptop</Tab>
-				<Tab onClick={() => setApiRoute('videoCard')}>VideoCard</Tab>
-				<Tab onClick={() => setApiRoute('monitor')}>Monitor</Tab>
+				<Tab onClick={() => setApiRoute('mouses')}>Mouse</Tab>
+				<Tab onClick={() => setApiRoute('accessories')}>Accessory</Tab>
+				<Tab onClick={() => setApiRoute('laptops')}>Laptop</Tab>
+				<Tab onClick={() => setApiRoute('videoCards')}>VideoCard</Tab>
+				<Tab onClick={() => setApiRoute('monitors')}>Monitor</Tab>
 			</TabList>
 
 			<TabPanels>
