@@ -1,6 +1,6 @@
 .background {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/d/d5/Game_zone_house_of_freeda.jpg);
-  height: 950px !important;
+  height: 500px !important;
   width: 100% !important;
   background-size: cover !important;
   background-position: center;
@@ -15,28 +15,9 @@
   height: 100%;
   background: rgba(4, 4, 107, 0.698);
 }
-
-.card,
-.card .image,
-.child_card {
-  transition: all 0.4s ease;
+.child_card{
+  margin-top: 80px;
 }
-.card {
-  border-radius: 8px;
-}
-.card:hover {
-  background: #060f42;
-  .icons {
-    color: orange !important;
-  }
-  .text {
-    color: white !important;
-  }
-  .image {
-    transform: scale(0.85) rotate(2deg);
-  }
-}
-
 .child_card:hover {
   box-shadow: rgba(239, 0, 223, 0.863) 0px 7px 29px 0px;
 }

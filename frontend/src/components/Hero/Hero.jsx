@@ -13,9 +13,10 @@ import { IoIosLaptop } from "react-icons/io";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { FaComputer, FaHandshake, FaScrewdriverWrench } from "react-icons/fa6";
 import { CgData } from "react-icons/cg";
-import { FaPassport } from "react-icons/fa";
+import { FaPassport, FaKeyboard  } from "react-icons/fa";
 import { FcElectronics, FcInTransit, FcOnlineSupport, FcPrint, FcTabletAndroid } from "react-icons/fc";
 import Word from '../Text';
+import { CiDesktopMouse2 } from "react-icons/ci";
 import { api } from '../../api';
 import axios from 'axios'
 import Loader from '../loader/Loader';
@@ -53,8 +54,8 @@ export default function Hero() {
                 <Word icon={<FcPrint size={25} />} text={'Printerlar'} />
                 <Word icon={<PiSpeakerHifiBold size={25} />} text={'Akustik Kolokanlar'} />
                 <Word icon={<CgData size={25} color='green' />} text={'Tarmoq Apparati'} />
-                <Word icon={<CgData size={25} color='green' />} text={'Tarmoq Apparati'} />
-                <Word icon={<CgData size={25} color='green' />} text={'Tarmoq Apparati'} />
+                <Word icon={<FaKeyboard  size={25}  />} text={'Klaviatura'} />
+                <Word icon={<CiDesktopMouse2  size={25} color='' />} text={'Sichqoncha'} />
             </Box>
 
             <Box className='carusel' w={{ xl: '76%', md: '100%', base: '100%' }} >

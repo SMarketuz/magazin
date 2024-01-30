@@ -28,7 +28,7 @@ export default function Footer() {
                     <Text fontSize='12px'></Text>
                     <Text fontSize='12px'>Magazindagi Tovarlar</Text>
                     <Text fontSize='12px'>Скупка Б/У </Text>
-                    <Text fontSize='12px'>Almashtirib berish va Texnik xizmatlar</Text>
+                    <Text fontSize='12px'>Texnik xizmatlar</Text>
                     <Text fontSize='12px'>Kompyuter yordami</Text>
                     <Text fontSize='12px'>Hamkorlik</Text>
                     <Text fontSize='12px'>Hammasi</Text>
@@ -71,7 +71,7 @@ export default function Footer() {
                         <Text>Chegirmalarga obuna bo'ling</Text>
                         <Box display='flex' alignItems='center' background='white' width={{ xl: '360px', md: '360px', base: '250px' }}>
                             <Input variant='unstyled' color='black' flex='1 0 0' padding='8px' borderRadius='6px' placeholder='Emailingizni Kiriting...' />
-                            <FaTelegramPlane size={25} style={{ color: '#01579B' }} />
+                            <FaTelegramPlane size={25} style={{ color: '#01579B', marginRight:'10px' }} />
                         </Box>
                     </Box>
                 </Box>

@@ -6,4 +6,11 @@ import cursor from './cursor.png'
 import bro from './bro.png'
 import boat from './boat.png'
 import not from './not.png'
-export{logo, line, tv, key, cursor, bro, boat, not}
+import kuller from './kuller.png'
+import laptop from './laptop.png'
+import videokarta from './videokarta.png'
+import besttv from './besttv.png'
+import avatar from './avatar.png'
+import image from './image.png'
+import nature from './nature.png'
+export{logo, line, tv, key, cursor, bro, boat, not, kuller, laptop, videokarta, besttv, avatar, image, nature}

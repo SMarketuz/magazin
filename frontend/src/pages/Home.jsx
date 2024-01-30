@@ -11,12 +11,12 @@ export default function Home() {
   return (
     <Box>
       <Navbar />
-      <Container maxWidth="1860px">
+      <Container maxWidth="1360px">
         <Hero />
         <Top />
       </Container>
       <Game />
-      <Container maxWidth="1860px">
+      <Container maxWidth="1360px">
         <Main />
       </Container>
       <Footer/>

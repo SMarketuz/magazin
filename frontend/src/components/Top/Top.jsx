@@ -14,9 +14,18 @@ export default function Top() {
   const toast = useToast()
   const [data, setData] = useState([])
 
+
   useEffect(() => {
-    axios.get(`${api}`)
-  })
+    axios.get(`${api}api/product/get-data`, {
+      headers: {
+        "ngrok-skip-browser-warning": true,
+        "Access-Control-Allow-Origin": "*",
+      }
+    })
+      .then((res) => {
+        setData(res.data)
+      })
+  }, [api]);
 
   const handleBuy = () => {
     toast({
@@ -27,12 +36,6 @@ export default function Top() {
       duration: '4000'
     })
   }
-  // const handleBuy = () => {
-  //   setToast(true)
-  //   setTimeout(() => {
-  //     setToast(false)
-  //   }, 2000);
-  // }
   return (
 
     <Box mt={{ md: '90px', base: '0' }}>
@@ -42,374 +45,37 @@ export default function Top() {
       </Box>
 
       {/* swipper 1 */}
-      <Box mb={{ md: '20px', base: '70px' }}>
-        <center>
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
-            navigation={true}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Navigation]}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 40,
-              },
-              1224: {
-                slidesPerView: 4,
-                spaceBetween: 50,
-              },
-              1250: {
-                slidesPerView: 5,
-                spaceBetween: 50,
-              },
-            }}
-            className="mySwiper"
-          >
-            {/* 1 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' mb='2px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
+      <center>
+        <Box mb={{ md: '20px', base: '70px' }} display='flex' alignItems='center' justifyContent='space-between'>
+          {/* 1 */}
+          {data.slice(0, 5).map((item) => (
+            <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' mb='2px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
+              <Box display='flex' alignItems='center' justifyContent='space-between'>
+                <Badge colorScheme='red'>{item.badge == 'gold' || item.badge == 'Gold' ? 'Gold Product' : 'Bronze Product'}</Badge>
+                <Box display='flex' alignItems='center' gap={2}>
+                  <PiScalesThin size={30} style={{ color: '#01579B' }} />
+                  <FaRegHeart size={25} style={{ color: '#01579B' }} />
                 </Box>
               </Box>
-            </SwiperSlide>
-            {/* 2 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
+              <Img src={item.image} height='250px' objectFit='cover' position='relative' />
+              <Box textAlign='start'>
+                <Text fontSize='20px' color='#333' fontWeight='500'>{item.name}</Text>
+                <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
+                <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
               </Box>
-            </SwiperSlide>
-            {/* 3 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
+              <Box display='flex' alignItems='center' justifyContent='space-between'>
+                <Box textAlign={'start'}>
+                  <Text fontSize='14px' color='red' textDecoration='line-through'>{item.originalCost}</Text>
+                  <Text color='#060F42' fontSize='18px' fontWeight='700'>{item.currentCost}</Text>
                 </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
+                <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
               </Box>
-            </SwiperSlide>
-            {/* 4 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            {/* 5 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            {/* 6 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-          </Swiper>
-        </center>
-      </Box>
+            </Box>
+          ))}
+        </Box>
+      </center>
 
-      {/* swipper 2 */}
-      <Box mt={{ xl: '100px', md: '210px', base: '70px' }}>
-        <center>
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
-            navigation={true}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Navigation]}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 40,
-              },
-              1224: {
-                slidesPerView: 4,
-                spaceBetween: 50,
-              },
-              1250: {
-                slidesPerView: 5,
-                spaceBetween: 50,
-              },
-            }}
-            className="mySwiper"
-          >
-            {/* 1 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' mb='2px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            {/* 2 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            {/* 3 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            {/* 4 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            {/* 5 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            {/* 6 */}
-            <SwiperSlide>
-              <Box display='flex' flexDirection='column' gap={4} width='272px' padding='10px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Badge colorScheme='red'>Top Mahsulot🔥</Badge>
-                  <Box display='flex' alignItems='center' gap={2}>
-                    <PiScalesThin size={30} style={{ color: '#01579B' }} />
-                    <FaRegHeart size={25} style={{ color: '#01579B' }} />
-                  </Box>
-                </Box>
-                <Img src={tv} position='relative' />
-                <Box textAlign='start'>
-                  <Text fontSize='16px' color='#333' fontWeight='500' >Монитор 23.8" Acer K240YB, Black (UM.QE0EE.B01)</Text>
-                  <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
-                  <Box display='flex' alignItems='center' color='orange'><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></Box>
-                </Box>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                  <Box textAlign={'start'}>
-                    <Text fontSize='14px' color='red' textDecoration='line-through'>450,000</Text>
-                    <Text color='#060F42' fontSize='18px' fontWeight='700'>350,00sum</Text>
-                  </Box>
-                  <Button bg='#06A56C' onClick={handleBuy} color='white'>Xarid Qilmoq</Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-          </Swiper>
-        </center>
-      </Box>
+
 
     </Box>
   )

@@ -1,6 +1,68 @@
-.image_marquee{
-    margin: 0 70px;
+.image_marquee {
+  margin: 0 70px;
 }
-.image_marquee img{
-    width: 80%;
+.image_marquee img {
+  width: 80%;
 }
+.main_child {
+  width: 800px;
+  padding: 8px;
+}
+.main_child .swiper {
+    width: 629px !important;
+  height: 100%;
+}
+.main .swiper-navigation-bullet{
+    background: green;
+}
+
+.main_child .swiper-slide {
+  text-align: start;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_child .swiper-slide img {
+  display: block;
+  object-fit: cover;
+}
+
+.btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .btn {
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  
+  .btn span:after {
+    content: '→';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -50px;
+    transition: 0.5s;
+  }
+  
+  .btn:hover span {
+    padding-right: 25px;
+    border-bottom: 1px solid gray;
+  }
+  .btn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
