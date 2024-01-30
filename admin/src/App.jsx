@@ -9,7 +9,8 @@ import Users from './page/users'
 import { useState } from 'react'
 import { useToast } from '@chakra-ui/react'
 import UpdateCategory from './page/updateCategory'
-import Home from './page/home'
+import CategoryForGamers from './page/CategoryForGamers'
+import CategoryForGamersGet from './page/CategoryForGamersGet'
 
 function App() {
   const [username, setUsername] = useState('');
@@ -69,6 +70,8 @@ function App() {
           <Route path='/admin/topProduct-get' element={<GetTopProduct />} />
           <Route path='/admin/users' element={<Users />} />
           <Route path='/admin/updateCategory/:id' element={<UpdateCategory />} />
+          <Route path='/admin/categoryForGamers-add' element={<CategoryForGamers />} />
+          <Route path='/admin/categoryForGamers-get' element={<CategoryForGamersGet />} />
         </Routes>
       </Box>
     }

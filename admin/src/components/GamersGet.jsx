@@ -1,75 +1,26 @@
 import { Box, Text, Input, Button, Avatar, useDisclosure, SkeletonCircle, Skeleton } from '@chakra-ui/react'
-import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-  TableContainer,
-} from '@chakra-ui/react'
-import { useToast } from '@chakra-ui/react'
-import ModalProp from '../components/modal/modal'
-import Search from '../components/search/search'
-import { useEffect, useState } from 'react'
-import { api } from '../api/api'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
+    Table,
+    Thead,
+    Tbody,
+    Tfoot,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+  } from '@chakra-ui/react'
+import React, { useState } from 'react'
+import Search from './search/search'
 
-const GetTopProduct = () => {
-  const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([])
-  const toast = useToast()
-
-  useEffect(() => {
-    axios.get(`${api}/api/product/get-data`, {
-      headers: {
-        "ngrok-skip-browser-warning": true,
-        "Access-Control-Allow-Origin": "*",
-    }
-    }).then((res) => {
-      setData(res.data)
-      setLoading(false)
-    })
-  }, [api])
-  
-  const handleDelete = (id) => {
-    axios.post(`${api}/api/product/delete-data`, {
-      "id": `${id}`
-    } ,{
-      headers: {
-        "ngrok-skip-browser-warning": true,
-        "Access-Control-Allow-Origin": "*",
-      }
-    }).then((res) => {
-      axios.get(`${api}/api/product/get-data`, {
-        headers: {
-          "ngrok-skip-browser-warning": true,
-          "Access-Control-Allow-Origin": "*",
-      }
-      }).then((res) => {
-        setData(res.data)
-      })
-      toast({
-        description: `${res.data.message}`,
-        status: 'success',
-        position: 'top-right',
-        duration: 3000,
-        isClosable: true,
-      })
-    })
-  }
-
+const GamersGet = ({loading, data, handleDelete}) => {
+    const [search, setSearch] = useState('')
   return (
-    <Box w={'95%'} m={'auto'} pl={'300px'} pt={'50px'}>
-      <Box w={'100%'}>
-        <Search setSearch={setSearch} />
-      </Box>
-      <TableContainer border={'1px solid #ADADAE'} rounded={'12px'}>
+    <Box pt={'30px'}>
+        <Box>
+            <Search setSearch={setSearch} />
+        </Box>
+        <TableContainer  border={'1px solid #ADADAE'} rounded={'12px'}>
         <Table variant='striped'>
           <Thead>
             <Tr>
@@ -84,7 +35,8 @@ const GetTopProduct = () => {
               <Th >Qo'shimcha</Th>
             </Tr>
           </Thead>
-          {loading ? <Tbody>
+          {loading ? 
+          <Tbody>
               <Tr>
                 <Td><Skeleton height='20px' /></Td>
                 <Td><SkeletonCircle size='10' /></Td>
@@ -189,7 +141,7 @@ const GetTopProduct = () => {
                 <Td>
                 <ModalProp maxInform={item.informationMax}  />
                 </Td>
-                <Td>{item.currentCost}uzs</Td>
+                <Td>{item.cost}uzs</Td>
                 <Td>{item.date.slice(0, 10)}</Td>
                 <Td>{item.rate}</Td>
                 <Td>
@@ -203,9 +155,8 @@ const GetTopProduct = () => {
           </Tbody>}
         </Table>
       </TableContainer>
-
     </Box>
   )
 }
 
-export default GetTopProduct
+export default GamersGet

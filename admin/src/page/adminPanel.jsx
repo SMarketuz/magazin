@@ -6,7 +6,7 @@ const AdminPanel = () => {
   return (
     <Box>
         <Box>
-          <AddTopProduct />
+          {/* <AddTopProduct /> */}
         </Box>
     </Box>
   )
