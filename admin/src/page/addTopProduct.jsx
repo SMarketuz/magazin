@@ -61,7 +61,8 @@ const AddTopProduct = () => {
             image: "",
             badge: "",
             name: "",
-            inform: "",
+            informationMin: "",
+            informationMax: "",
             originalCost: "",
             currentCost: "",
             rate: "",
@@ -78,12 +79,12 @@ const AddTopProduct = () => {
   };
 
   const handleClick = () => {
-    setLoading(true)
+    setLoading(true);
     setInterval(() => {
-      setLoading(false)
+      setLoading(false);
     }, 2000);
-    postHandler()
-  }
+    postHandler();
+  };
 
   return (
     <Box pl={"300px"} h={"92vh"} w={"100%"}>
@@ -197,7 +198,7 @@ const AddTopProduct = () => {
             _hover={""}
             bg={"#4C4C4C"}
           >
-            {loading ? <Spinner /> : ''} Send
+            {loading ? <Spinner /> : ""} Send
           </Button>
         </Box>
       </Box>

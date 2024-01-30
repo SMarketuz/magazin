@@ -1,19 +1,18 @@
-import { Box, Container } from "@chakra-ui/react"
-import Register from "./components/Register"
-import Navbar from "./components/Navbar"
-import Hero from "./components/Hero/Hero"
-import Top from "./components/Top/Top"
-import Game from "./components/Game/Game"
+import { Box } from "@chakra-ui/react"
+import { Route, Routes } from "react-router-dom"
+import Home from "./pages/Home"
+import NotFound from "./pages/NotFound/NotFound"
+
 function App() {
 
   return (
       <Box>
-        <Navbar />
-        <Container maxWidth='1860px'> 
-        <Hero/>
-        <Top/>
-        </Container>
-        <Game/>
+        <Routes>
+          <Route path='/' element={<Home/>}></Route>
+
+          {/* Not Found  */}
+          <Route path="*" element={<NotFound/>}></Route>
+        </Routes>
       </Box>
   )
 }

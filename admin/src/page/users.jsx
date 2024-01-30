@@ -94,7 +94,7 @@ const Users = () => {
             <Tr>
               <Td>{item.name}</Td>
               <Td>{item.username}</Td>
-              <Td>
+              <Td isNumeric>
                 {" "}
                 <Button _hover="" bg={"red"} variant="solid">
                   <DeleteIcon />

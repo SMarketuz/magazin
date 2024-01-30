@@ -35,6 +35,20 @@ const SidebarForAdmin = () => {
           </AccordionItem>
 
           {/* 3*/}
+          <AccordionItem style={{ border: 'none' , paddingTop: '10px'}}>
+            <h2>
+              <AccordionButton>
+                <Box pr={'5px'} fontWeight={'500'} fontSize={'20px'} color={'white'} textAlign="left">
+                  Top Category
+                </Box>
+                <AccordionIcon style={{color: 'white'}} />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel style={{ border: 'none' }} pb={4} fontWeight={'500'} fontSize={'18px'} color={'white'}>
+              <Link to={'/admin/categoryForGamers-add'}><Text>Post Gamer category</Text></Link>
+              <Link to={'/admin/categoryForGamers-get'}><Text>Get Gamer Category</Text></Link>
+            </AccordionPanel>
+          </AccordionItem>
 
         </Accordion>
 
