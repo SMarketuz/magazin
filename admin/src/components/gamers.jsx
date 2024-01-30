@@ -1,6 +1,6 @@
 import { Box, Text, Input, Button, Spinner } from "@chakra-ui/react";
 
-const Gamers = ({values, image, name, informationMin, informationMax, cost, rate, handleClick, setValues}) => {
+const Gamers = ({values, image, name, informationMin, informationMax, cost, rate, postHandler, setValues}) => {
   return (
     <Box>
     <Box pt={"30px"} display={"flex"} alignItems={"center"} gap={"5rem"}>
@@ -81,7 +81,7 @@ const Gamers = ({values, image, name, informationMin, informationMax, cost, rate
     </Box>
     <Box display={"flex"} alignItems={"right"} justifyContent={"right"}>
       <Button
-        onClick={handleClick}
+        onClick={postHandler}
         mt={"30px"}
         w={"100px"}
         h={"40px"}
