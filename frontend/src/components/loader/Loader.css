@@ -1,36 +1,34 @@
 .spinner {
-  width: 27rem;
-  height: 27rem;
+  width: 206px;
+  height: 206px;
   display: grid;
-  border: 4px solid #0000;
+  border: 4.5px solid #0000;
   border-radius: 50%;
-  border-right-color: #004dff;
-  animation: spinner-a4dj62 1s infinite linear;
-}
-@media(max-width:800px){
-  .spinner{
-    width: 178px;
-    height: 178px;
-    margin-top: 40px;
-  }
+  border-color: #dbdcef #0000;
+  animation: spinner-e04l1k 1s infinite linear;
 }
 
 .spinner::before,
 .spinner::after {
   content: "";
   grid-area: 1/1;
-  margin: 2px;
+  margin: 2.2px;
   border: inherit;
   border-radius: 50%;
-  animation: spinner-a4dj62 2s infinite;
+}
+
+.spinner::before {
+  border-color: #474bff #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
 }
 
 .spinner::after {
-  margin: 8px;
-  animation-duration: 3s;
+  margin: 8.9px;
 }
 
-@keyframes spinner-a4dj62 {
+@keyframes spinner-e04l1k {
   100% {
     transform: rotate(1turn);
   }

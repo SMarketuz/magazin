@@ -12,13 +12,14 @@ import { IoSearchOutline } from "react-icons/io5";
 import Shop from './Shop';
 import { MdDeleteForever } from 'react-icons/md';
 import { IoIosArrowDown } from "react-icons/io";
+import Likes from './Likes';
 
 
 export default function Navbar() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [show, setShow] = useState(false)
     const btnRef = React.useRef()
-    
+
     const showinp = () => {
         setShow(true)
     }
@@ -31,7 +32,7 @@ export default function Navbar() {
     return (
         <Box width='100%'>
             {/* for blue  */}
-            <Box display={{ xl: 'flex', md: 'flex', base: 'none' }} width='100%' alignItems='center' justifyContent='space-between' px='25px' py='10px' bg='#060F42' color='white'>
+            <Box display={{ xl: 'flex', md: 'flex', base: 'none' }} width='100%' alignItems='center' justifyContent='space-between' px='125px' py='10px' bg='#060F42' color='white'>
                 <Box display='flex' alignItems='center' gap='30px'>
                     <HiOutlineBars3 size={30} onClick={onOpen} ref={btnRef} style={{ cursor: 'pointer' }} />
                     <Text>Aksiya</Text>
@@ -52,11 +53,11 @@ export default function Navbar() {
             </Box>
 
             {/* for navbar  */}
-            <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px='10px' justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
+            <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px='110px' justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
                 <img src={logo} alt="" />
                 <Button display="flex" alignItems='center' bg='#06A56C' color='white' padding='9px 12px' gap={4} fontSize={{ xl: '18px', md: '15px', }} className="catalogbtn" border='none'><Text display={{ xl: 'block', md: 'none' }}>Tovarlar Bo'limi</Text><GrAppsRounded size={20} /></Button>
                 <Box display='flex' alignItems='center' border='1px solid gray' >
-                    <Input variant='unstyled' width={{ xl: '750px', md: '158px', base: '20px' }} pl='40px' placeholder="Qidirish" />
+                    <Input variant='unstyled' width={{ xl: '550px', md: '158px', base: '20px' }} pl='40px' placeholder="Qidirish" />
                     <Button colorScheme='blue' borderRadius='0px' color='white'><GoSearch size={25} /></Button>
                 </Box>
                 {/* telefon uchun  */}
@@ -101,8 +102,11 @@ export default function Navbar() {
 
                         </Box>
                     </Box>
-                    <FaRegHeart size={33} />
-                    <Shop />
+                    <Box width='100%' display='flex' alignItems='center' justifyContent='space-around'>
+                        <Likes />
+                        <Shop />
+                    </Box>
+
                 </Box>
             </Box>
 
@@ -185,11 +189,21 @@ export default function Navbar() {
 
                                 <Text fontSize='20px' pt='40px' pb='20px'>Bizni Kuzating</Text>
                                 <Box display='flex' alignItems='center' gap='10px'>
-                                    <FaInstagram size={35} style={{ background: 'white', width: '38px', padding: '5px', height: '38px', color: '#C32ACE', borderRadius: '50%' }} />
-                                    <FaFacebookF size={35} style={{ background: 'white', width: '38px', padding: '5px', height: '38px', color: '#0E68CE', borderRadius: '50%' }} />
-                                    <FaTelegramPlane size={35} style={{ background: 'white', width: '38px', padding: '5px', height: '38px', color: '#3182CE', borderRadius: '50%' }} />
-                                    <FaYoutube size={35} style={{ background: 'white', width: '38px', padding: '5px', height: '38px', color: 'red', borderRadius: '50%' }} />
-                                    <FaLinkedin style={{ background: 'white', color: '#0E68CE', width: '40px', padding: '5px', height: '40px', borderRadius: '50%' }} />
+                                    <Tooltip hasArrow label='Instagram' bg='red.600'>
+                                        <Button bg='white' color='#C32ACE' borderRadius='50%' width='40px' padding='8px'><FaInstagram style={{ width: '40px', height: '40px' }} /></Button>
+                                    </Tooltip>
+                                    <Tooltip hasArrow label='Facebook' bg='red.600'>
+                                        <Button bg='white' color='#0E68CE' borderRadius='50%' width='40px' padding='10px'><FaFacebookF style={{ width: '40px', height: '40px' }} /></Button>
+                                    </Tooltip>
+                                    <Tooltip hasArrow label='Telegram' bg='red.600'>
+                                        <Button bg='white' color='#3182CE' borderRadius='50%' width='40px' padding='8px'><FaTelegramPlane style={{ width: '40px', height: '40px' }} /></Button>
+                                    </Tooltip>
+                                    <Tooltip hasArrow label='You Tube' bg='red.600'>
+                                        <Button bg='white' color='red' borderRadius='50%' width='40px' padding='8px'><FaYoutube style={{ width: '40px', height: '40px' }} /></Button>
+                                    </Tooltip>
+                                    <Tooltip hasArrow label='Instagram' bg='red.600'>
+                                        <Button bg='white' color='#0E68CE' borderRadius='50%' width='40px' padding='8px'><FaLinkedin style={{ width: '40px', height: '40px' }} /></Button>
+                                    </Tooltip>
                                 </Box>
                             </Accordion>
                         </DrawerBody>

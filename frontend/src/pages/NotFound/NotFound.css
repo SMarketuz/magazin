@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
+
+@keyframes floating {
+  from {
+    transform: translateY(0px);
+  }
+
+  65% {
+    transform: translateY(15px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.pare {
+  height: 100vh !important;
+  margin: 0;
+  background-attachment: fixed;
+  overflow: hidden;
+  background-image: url("https://www.spaceacademy.net.au/gallery/paint/cybersky7.gif"),
+    linear-gradient(to bottom, #05007a, #4d007d);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.pare::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.mars {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  height: 30vmin;
+  background: url("https://pbs.twimg.com/media/EdhmN4OXgAAgi1f.jpg:large")
+    no-repeat bottom center;
+  background-size: cover;
+}
+
+.logo-404 {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 10vmin;
+  width: 30vmin;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .logo-404 {
+    top: 45vmin;
+  }
+}
+
+.meteor {
+  position: absolute;
+  right: 2vmin;
+  top: 16vmin;
+}
+
+.title {
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  font-size: 5vmin;
+  margin-top: 35vmin;
+  font-family: monospace;
+  position: relative;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .title {
+    margin-top: 65vmin;
+  }
+}
+
+.subtitle {
+  color: white;
+  font-weight: 400;
+  text-align: center;
+  font-size: 3.5vmin;
+  margin-top: -1vmin;
+  margin-bottom: 9vmin;
+  font-family: monospace;
+  position: relative;
+}
+
+.btn-back {
+  border: 1px solid white;
+  color: white;
+  height: 5vmin;
+  padding: 12px;
+  text-decoration: none;
+  border-radius: 5px;
+  position: relative;
+}
+
+.btn-back:hover {
+  background: white;
+  color: #4d007d;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .btn-back {
+    font-size: 3.5vmin;
+  }
+}
+
+.astronaut {
+  position: absolute;
+  top: 18vmin;
+  left: 10vmin;
+  height: 40vmin;
+  animation: floating 3s infinite ease-in-out;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .astronaut {
+    top: 2vmin;
+  }
+}
+
+@keyframes space {
+  from {
+    transform: translateX(-40px);
+  }
+
+  65% {
+    transform: translateX(20px);
+  }
+
+  to {
+    transform: translateX(-40px);
+  }
+}
+.spaceship {
+  animation: space 5s infinite ease-in-out;
+}
+.space_pare {
+  transform: rotate(-40deg) !important;
+  position: absolute;
+  bottom: 17vmin;
+  width: 350px;
+  right: 18vmin;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .spaceship {
+    width: 45vmin;
+  }
+  .mars {
+    height: 50vmin;
+  }
+}
+@media (max-width: 800px) {
+  .space_pare {
+    bottom: 50vmin;
+  }
+  .astronaut {
+    left: 60vmin;
+  }
+}
