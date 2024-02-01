@@ -16,7 +16,7 @@ router.post('/create-data', async(req, res) => {
             name: req.body.name,
             informationMin: req.body.informationMin,
             informationMax: req.body.informationMax,
-            cost: req.body.originalCost,
+            cost: req.body.cost,
             rate: req.body.rate
         })
     
@@ -73,8 +73,7 @@ router.post('/update-data/:id', async(req, res) => {
                 name: req.body.name,
                 informationMin: req.body.informationMin,
                 informationMax: req.body.informationMax,
-                originalCost: req.body.originalCost,
-                currentCost: req.body.currentCost,
+                cost: req.body.cost,
                 rate: req.body.rate
             }
         })

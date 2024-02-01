@@ -3,6 +3,7 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import Gamers from '../components/gamers'
 import { useState } from 'react';
 import { api } from '../api/api';
+import axios from 'axios';
 const CategoryForGamers = () => {
 	const [values, setValues] = useState({
 		image: "",
@@ -82,31 +83,31 @@ const CategoryForGamers = () => {
 		  <Tabs>
 			<TabList>
 				<Tab onClick={() => setApiRoute('keyboard')}>Keyboard</Tab>
-				<Tab onClick={() => setApiRoute('mouse')}>Mouse</Tab>
-				<Tab onClick={() => setApiRoute('accessory')}>Accessory</Tab>
-				<Tab onClick={() => setApiRoute('laptop')}>Laptop</Tab>
-				<Tab onClick={() => setApiRoute('videoCard')}>VideoCard</Tab>
-				<Tab onClick={() => setApiRoute('monitor')}>Monitor</Tab>
+				<Tab onClick={() => setApiRoute('mouses')}>Mouse</Tab>
+				<Tab onClick={() => setApiRoute('accessories')}>Accessory</Tab>
+				<Tab onClick={() => setApiRoute('laptops')}>Laptop</Tab>
+				<Tab onClick={() => setApiRoute('videoCards')}>VideoCard</Tab>
+				<Tab onClick={() => setApiRoute('monitors')}>Monitor</Tab>
 			</TabList>
 
 			<TabPanels>
 				<TabPanel>
-				  <Gamers setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
+				  <Gamers postHandler={postHandler} setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
 				</TabPanel>
 				<TabPanel>
-				  <Gamers setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
+				  <Gamers postHandler={postHandler} setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
 				</TabPanel>
 				<TabPanel>
-				  <Gamers setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
+				  <Gamers postHandler={postHandler} setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
 				</TabPanel>
 				<TabPanel>
-				  <Gamers setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
+				  <Gamers postHandler={postHandler} setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
 				</TabPanel>
 				<TabPanel>
-				  <Gamers setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
+				  <Gamers postHandler={postHandler} setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
 				</TabPanel>
 				<TabPanel>
-				  <Gamers setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
+				  <Gamers postHandler={postHandler} setValues={setValues} values={values} image={values.image} name={values.name} informationMax={values.informationMax} informationMin={values.informationMin} cost={values.cost} rate={values.rate} />
 				</TabPanel>
 			</TabPanels>
 			</Tabs>
