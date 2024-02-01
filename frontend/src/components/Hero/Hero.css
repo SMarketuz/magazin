@@ -53,6 +53,7 @@
 .texts {
   overflow-y: scroll;
   height: 600px;
+  /* box-shadow:   inset 0px -40px 8px -10px #ebebeb;  */
 }
 
 .texts::-webkit-scrollbar {

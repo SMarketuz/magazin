@@ -42,7 +42,7 @@ export default function Hero() {
         <Box display='flex' mt={{ xl: '35px', md: '0px' }} justifyContent='space-around' alignItems='start'>
 
             {/* for texts  */}
-            <Box display={{ xl: 'flex', md: 'none', base: 'none' }} flexDirection='column' gap='12px' className='texts'>
+            <Box display={{ xl: 'flex', md: 'none', base: 'none' }} flexDirection='column' gap='12px' className='texts' >
                 {/* 1 */}
                 <Word icon={<FcElectronics size={25} />} text={'PC Komplekt'} />
                 <Word icon={<PiMonitorLight size={25} color='#3182CE' />} text={'Ekran'} />

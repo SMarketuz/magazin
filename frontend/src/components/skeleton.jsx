@@ -16,19 +16,13 @@ export default function Skeleton({size}) {
                 <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
                 <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
             </Box>
-            <Box padding='6' boxShadow='lg' bg='white' width={size} height='350px'>
+            <Box padding='6' boxShadow='lg' bg='white' width={size} height='350px' display={{md:'block', base:'none'}}>
                 <SkeletonCircle size='10' />
                 <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
                 <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
                 <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
             </Box>
-            <Box padding='6' boxShadow='lg' bg='white' width={size} height='350px'>
-                <SkeletonCircle size='10' />
-                <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
-                <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
-                <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
-            </Box>
-            <Box padding='6' boxShadow='lg' bg='white' width={size} height='350px'>
+            <Box padding='6' boxShadow='lg' bg='white' width={size} height='350px' display={{md:'block', base:'none'}}>
                 <SkeletonCircle size='10' />
                 <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
                 <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />

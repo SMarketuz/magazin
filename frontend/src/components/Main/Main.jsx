@@ -49,9 +49,7 @@ export default function Main() {
             </Box>
 
             {/* for comentariya  */}
-            <Box>
-               
-            </Box>
+            
             {/* for novosti  */}
             <Box mt={20} >
                 <Text fontSize='28px' fontWeight='600' color='#333'>Yangiliklar</Text>
