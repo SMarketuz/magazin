@@ -38,46 +38,6 @@ body::-webkit-scrollbar-track {
   }
 }
 
-.thin_hover:hover {
-  .thin {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .thin_icon {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
-  }
-}
-
-.thin {
-  display: none;
-  position: absolute;
-  color: #01579b;
-  padding: 30px;
-  transform: translateX(-200px);
-  overflow-y: scroll;
-  width: 250px;
-  height: 200px;
-  border-radius: 8px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background: white !important;
-
-  .del {
-    color: red;
-  }
-
-  .thin_child {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 40px;
-  }
-}
-
 .thin::-webkit-scrollbar {
   display: none;
 }

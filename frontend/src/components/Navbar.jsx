@@ -13,6 +13,7 @@ import Shop from './Shop';
 import { MdDeleteForever } from 'react-icons/md';
 import { IoIosArrowDown } from "react-icons/io";
 import Likes from './Likes';
+import { Link } from 'react-router-dom';
 
 
 export default function Navbar() {
@@ -35,12 +36,12 @@ export default function Navbar() {
             <Box display={{ xl: 'flex', md: 'flex', base: 'none' }} width='100%' alignItems='center' justifyContent='space-between' px='125px' py='10px' bg='#060F42' color='white'>
                 <Box display='flex' alignItems='center' gap='30px'>
                     <HiOutlineBars3 size={30} onClick={onOpen} ref={btnRef} style={{ cursor: 'pointer' }} />
-                    <Text>Aksiya</Text>
-                    <Text>Kredit</Text>
-                    <Text>To'lov va Yetkazib Berish</Text>
-                    <Text>Yordam</Text>
-                    <Text>Tovar Ayriboshlash</Text>
-                    <Text>Bog'lanish</Text>
+                    <Link to='/'><Text>Bosh Saxifa</Text></Link>
+                    <Link><Text>Aksiya</Text></Link>
+                    <Link><Text>Kredit</Text></Link>
+                    <Link><Text>To'lov va Yetkazib Berish</Text></Link>
+                    <Link><Text>Yordam</Text></Link>
+                    <Link><Text>Bog'lanish</Text></Link>
                 </Box>
                 <Box display='flex' alignItems='center' gap='2px' >
                     <Text opacity='0.7'>Ru</Text>
@@ -79,34 +80,10 @@ export default function Navbar() {
                 <img src={line} alt="" />
                 {/* ayri boshlash  */}
                 <Box display='flex' alignItems='center' justifyContent='space-between' w='10%'>
-                    <Box className='thin_hover'>
-                        <PiScalesThin size={40} className='thin_icon' />
-                        <Box className='thin'>
-                            <Text>Ayriboshlash Ro'yxati</Text>
-                            <Box display='flex' alignItems='center' justifyContent='space-between' className='thin_child'>
-                                <Text>Monitor(2)</Text>
-                                <MdDeleteForever size={20} className='del' />
-                            </Box>
-                            <Box display='flex' alignItems='center' justifyContent='space-between' className='thin_child'>
-                                <Text>Monitor(2)</Text>
-                                <MdDeleteForever size={20} className='del' />
-                            </Box>
-                            <Box display='flex' alignItems='center' justifyContent='space-between' className='thin_child'>
-                                <Text>Monitor(2)</Text>
-                                <MdDeleteForever size={20} className='del' />
-                            </Box>
-                            <Box display='flex' alignItems='center' justifyContent='space-between' className='thin_child'>
-                                <Text>Monitor(2)</Text>
-                                <MdDeleteForever size={20} className='del' />
-                            </Box>
-
-                        </Box>
-                    </Box>
                     <Box width='100%' display='flex' alignItems='center' justifyContent='space-around'>
                         <Likes />
                         <Shop />
                     </Box>
-
                 </Box>
             </Box>
 
