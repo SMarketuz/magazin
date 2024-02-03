@@ -11,6 +11,7 @@ import { useToast } from '@chakra-ui/react'
 import UpdateCategory from './page/updateCategory'
 import CategoryForGamers from './page/CategoryForGamers'
 import CategoryForGamersGet from './page/CategoryForGamersGet'
+import UpdateGamers from './page/updateGamers'
 
 function App() {
   const [username, setUsername] = useState('');
@@ -72,6 +73,7 @@ function App() {
           <Route path='/admin/updateCategory/:id' element={<UpdateCategory />} />
           <Route path='/admin/categoryForGamers-add' element={<CategoryForGamers />} />
           <Route path='/admin/categoryForGamers-get' element={<CategoryForGamersGet />} />
+          <Route path='/admin/updateGamers/:name/:id' element={<UpdateGamers />} />
         </Routes>
       </Box>
     }
