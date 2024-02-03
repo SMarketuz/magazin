@@ -51,6 +51,7 @@ export default function Likes() {
                                 <Text>360 000sum</Text>
                                 <Button color='red'><MdDeleteForever size={20} /></Button>
                             </Box>
+                            
                             {/* obshi  */}
                             <Box display='flex' alignItems='center' justifyContent='end' gap='15px' mt='70px' mb='110px'>
                                 <Button bg='#06A56C' color='white'>Zakaz Berish</Button>

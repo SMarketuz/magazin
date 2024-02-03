@@ -1,0 +1,12 @@
+
+  
+  .zigzag {
+    border: none;
+  background: rgb(234, 233, 233);
+  transition: all .3s ease;
+  -webkit-mask:
+    conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/20px 100%;
+}
+.zigzag:hover{
+    transform: scale(1.1) rotate(1deg);  
+}

@@ -1,14 +1,14 @@
-import { Box } from '@chakra-ui/react'
 import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import { Box } from '@chakra-ui/react'
 
-export default function Producuts() {
+export default function News() {
   return (
     <Box>
-      <Navbar/>
+        <Navbar/>
 
-      <Footer/>        
+        <Footer/>
     </Box>
   )
 }

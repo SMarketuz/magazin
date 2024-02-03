@@ -9,6 +9,8 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import axios from 'axios';
 import { api } from '../../api';
 import Skeleton from '../skeleton';
+import { Link } from 'react-router-dom';
+
 
 export default function Top() {
   const toast = useToast()
@@ -41,14 +43,14 @@ export default function Top() {
   return (
 
     <Box mt={{ md: '90px', base: '0' }}>
-      <Box display='flex' alignItems={{ md: 'center', base: 'start' }} mt={{ md: '0', base: '70px' }} mb={{ md: '0', base: '40px' }} flexDirection={{ md: 'inherit', base: 'column' }} justifyContent='space-between' >
+      <Box display='flex' alignItems={{ md: 'center', base: 'start' }} mt={{ md: '0', base: '70px' }} mb='40px' flexDirection={{ md: 'inherit', base: 'column' }} justifyContent='space-between' >
         <Text fontSize='40px' fontWeight='700'>Top Mahsulotlar</Text>
-        <Text color='#01579B' display='flex' alignItems='center' gap={2} fontWeight='500'>Смотреть все товары<FaArrowRightLong /></Text>
+        <Link to='/product'><Text color='#01579B' display='flex' alignItems='center' gap={2} fontWeight='500' >Смотреть все товары<FaArrowRightLong /></Text></Link>
       </Box>
 
       {/* swipper 1 */}
       <center>
-        {loader ? <Skeleton size={'300px'} /> :
+        {loader ? <Skeleton size={'300px'} height={'380px'} /> :
           <Box mb={{ md: '20px', base: '70px' }} display='flex' alignItems='center' justifyContent='space-between' overflowY='scroll' className='thin'>
             {/* 1 */}
             {data.slice(0, 4).map((item) => (
