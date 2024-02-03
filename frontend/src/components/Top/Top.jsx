@@ -51,7 +51,7 @@ export default function Top() {
       {/* swipper 1 */}
       <center>
         {loader ? <Skeleton size={'300px'} height={'380px'} /> :
-          <Box mb={{ md: '20px', base: '70px' }} display='flex' alignItems='center' justifyContent='space-between' overflowY='scroll' className='thin'>
+          <Box mb={{ md: '20px', base: '70px' }} display='flex' alignItems='center' justifyContent='space-between' overflowX='scroll' className='thin' w='100%'>
             {/* 1 */}
             {data.slice(0, 4).map((item) => (
               <Box display='flex' flexDirection='column' gap={4} width='302px' padding='10px' mb='2px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
