@@ -3,7 +3,6 @@ const router = express.Router();
 const {User} = require('../model/user')
 const bcrypt = require('bcrypt')
 
-
 router.post('/create' ,async (req , res) => {
 
     const validateUserName = await User.findOne({
@@ -27,11 +26,13 @@ router.post('/create' ,async (req , res) => {
 })
 
 router.get('/get-user' , async (req , res) => {
-    const data = await User.find();
-
+    const data = await User.find()
+    .select('-password -__v')
+ 
     res.json({
         data: data
     })
 })
 
-module.exports = router
+
+module.exports = router 
