@@ -66,7 +66,7 @@ router.post('/delete-data' , async (req , res) => {
 
 router.post('/update-data/:id', async(req, res) => {
     try {
-        const getData = await TopProduct.updateOne({_id: req.params.id} , {
+        const getData = await Keyboard.updateOne({_id: req.params.id} , {
             $set: {
                 badge: req.body.badge,
                 image: req.body.image,
