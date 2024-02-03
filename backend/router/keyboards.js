@@ -56,7 +56,7 @@ router.get('/get-data-byId/:id', async(req, res) => {
 })
 
 router.post('/delete-data' , async (req , res) => {
-    const data = await TopProduct.deleteOne({_id: req.body.id})
+    const data = await Keyboard.deleteOne({_id: req.body.id})
 
     res.json({
         message: "Ma'lumot o'chirildi",
