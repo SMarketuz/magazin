@@ -13,6 +13,7 @@ import Shop from './Shop';
 import { MdDeleteForever } from 'react-icons/md';
 import { IoIosArrowDown } from "react-icons/io";
 import Likes from './Likes';
+import { Link } from 'react-router-dom';
 
 
 export default function Navbar() {
@@ -32,15 +33,15 @@ export default function Navbar() {
     return (
         <Box width='100%'>
             {/* for blue  */}
-            <Box display={{ xl: 'flex', md: 'flex', base: 'none' }} width='100%' alignItems='center' justifyContent='space-between' px='125px' py='10px' bg='#060F42' color='white'>
+            <Box display={{ xl: 'flex', md: 'flex', base: 'none' }} width='100%' alignItems='center' justifyContent='space-between' px={{xl:'125px', md:'0', base:'0'}} py='10px' bg='#060F42' color='white'>
                 <Box display='flex' alignItems='center' gap='30px'>
-                    <HiOutlineBars3 size={30} onClick={onOpen} ref={btnRef} style={{ cursor: 'pointer' }} />
-                    <Text>Aksiya</Text>
-                    <Text>Kredit</Text>
-                    <Text>To'lov va Yetkazib Berish</Text>
-                    <Text>Yordam</Text>
-                    <Text>Tovar Ayriboshlash</Text>
-                    <Text>Bog'lanish</Text>
+                    <FaBarsStaggered size={30} onClick={onOpen} ref={btnRef} style={{ cursor: 'pointer' }} />
+                    <Link to='/'><Text>Bosh Saxifa</Text></Link>
+                    <Link><Text>Aksiya</Text></Link>
+                    <Link><Text>Kredit</Text></Link>
+                    <Link><Text>To'lov va Yetkazib Berish</Text></Link>
+                    <Link><Text>Yordam</Text></Link>
+                    <Link><Text>Bog'lanish</Text></Link>
                 </Box>
                 <Box display='flex' alignItems='center' gap='2px' >
                     <Text opacity='0.7'>Ru</Text>
@@ -53,7 +54,7 @@ export default function Navbar() {
             </Box>
 
             {/* for navbar  */}
-            <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px='110px' justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
+            <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px={{xl:'110px', md:'0', base:'0'}} justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
                 <img src={logo} alt="" />
                 <Button display="flex" alignItems='center' bg='#06A56C' color='white' padding='9px 12px' gap={4} fontSize={{ xl: '18px', md: '15px', }} className="catalogbtn" border='none'><Text display={{ xl: 'block', md: 'none' }}>Tovarlar Bo'limi</Text><GrAppsRounded size={20} /></Button>
                 <Box display='flex' alignItems='center' border='1px solid gray' >
@@ -79,34 +80,10 @@ export default function Navbar() {
                 <img src={line} alt="" />
                 {/* ayri boshlash  */}
                 <Box display='flex' alignItems='center' justifyContent='space-between' w='10%'>
-                    <Box className='thin_hover'>
-                        <PiScalesThin size={40} className='thin_icon' />
-                        <Box className='thin'>
-                            <Text>Ayriboshlash Ro'yxati</Text>
-                            <Box display='flex' alignItems='center' justifyContent='space-between' className='thin_child'>
-                                <Text>Monitor(2)</Text>
-                                <MdDeleteForever size={20} className='del' />
-                            </Box>
-                            <Box display='flex' alignItems='center' justifyContent='space-between' className='thin_child'>
-                                <Text>Monitor(2)</Text>
-                                <MdDeleteForever size={20} className='del' />
-                            </Box>
-                            <Box display='flex' alignItems='center' justifyContent='space-between' className='thin_child'>
-                                <Text>Monitor(2)</Text>
-                                <MdDeleteForever size={20} className='del' />
-                            </Box>
-                            <Box display='flex' alignItems='center' justifyContent='space-between' className='thin_child'>
-                                <Text>Monitor(2)</Text>
-                                <MdDeleteForever size={20} className='del' />
-                            </Box>
-
-                        </Box>
-                    </Box>
                     <Box width='100%' display='flex' alignItems='center' justifyContent='space-around'>
                         <Likes />
                         <Shop />
                     </Box>
-
                 </Box>
             </Box>
 
@@ -114,7 +91,7 @@ export default function Navbar() {
             <Box>
                 <Box bg='#060F42' display={{ md: 'none', base: 'flex' }} flexDirection='column' padding='20px' gap='20px'>
                     <Box display={{ md: 'none', base: 'flex' }} alignItems='center' color='white' justifyContent='space-around' onClick={hidewinp}>
-                        <FaBarsStaggered ref={btnRef} onClick={onOpen} size={30} />
+                        <FaBarsStaggered ref={btnRef} onClick={onOpen} size={30} style={{cursor:'pointer'}} />
                         <img src={logo} alt="" />
                         <FaPhoneVolume size={30} />
                     </Box>

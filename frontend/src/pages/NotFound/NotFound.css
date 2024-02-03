@@ -39,8 +39,8 @@
   bottom: 0;
   position: absolute;
   height: 30vmin;
-  background: url("https://pbs.twimg.com/media/EdhmN4OXgAAgi1f.jpg:large")
-    no-repeat bottom center;
+  /* background: url("https://pbs.twimg.com/media/EdhmN4OXgAAgi1f.jpg:large")
+    no-repeat bottom center; */
   background-size: cover;
 }
 

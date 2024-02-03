@@ -16,7 +16,7 @@ import ModalProp from './modal/modal'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom'
 
-const GamersGet = ({loading, data, handleDelete}) => {
+const GamersGet = ({loading, data, handleDelete , link}) => {
     const [search, setSearch] = useState('')
   return (
     <Box pt={'30px'}>
@@ -149,7 +149,7 @@ const GamersGet = ({loading, data, handleDelete}) => {
                 <Td>{item.rate}</Td>
                 <Td>
                   <Button onClick={() => handleDelete(item._id)} color={'white'} _hover='' bg={'red'} variant='solid' mr={2}><DeleteIcon /></Button>
-                  <Link to={`/admin/updateCategory/${item._id}`}>
+                  <Link to={`/admin/updateGamers/${link}/${item._id}`}>
                     <Button color={'white'} _hover='' bg={'green.300'} variant='solid'><EditIcon /></Button>
                   </Link>
                 </Td>

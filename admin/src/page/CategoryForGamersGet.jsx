@@ -37,7 +37,7 @@ console.log(apiRoute);
   
 
     const handleDelete = (id) => {
-        axios.post(`${api}/api/product/delete-data`, {
+        axios.post(`${api}/api/${apiRoute}/delete-data`, {
           "id": `${id}`
         } ,{
           headers: {
@@ -45,7 +45,7 @@ console.log(apiRoute);
             "Access-Control-Allow-Origin": "*",
           }
         }).then((res) => {
-          axios.get(`${api}/api/product/get-data`, {
+          axios.get(`${api}/api/${apiRoute}/get-data`, {
             headers: {
               "ngrok-skip-browser-warning": true,
               "Access-Control-Allow-Origin": "*",
@@ -80,22 +80,22 @@ console.log(apiRoute);
 
 			<TabPanels>
 				<TabPanel>
-                 <GamersGet data={data} loading={loading} handleDelete={handleDelete}/>
+                 <GamersGet link={'keyboard'} data={data} loading={loading} handleDelete={handleDelete}/>
 				</TabPanel>
 				<TabPanel>
-                <GamersGet data={data} loading={loading} handleDelete={handleDelete}/>
+                <GamersGet link={'mouses'} data={data} loading={loading} handleDelete={handleDelete}/>
 				</TabPanel>
 				<TabPanel>
-                <GamersGet data={data} loading={loading} handleDelete={handleDelete}/>
+                <GamersGet link={'accessories'} data={data} loading={loading} handleDelete={handleDelete}/>
 				</TabPanel>
 				<TabPanel>
-                <GamersGet data={data} loading={loading} handleDelete={handleDelete}/>
+                <GamersGet link={'laptops'} data={data} loading={loading} handleDelete={handleDelete}/>
 				</TabPanel>
 				<TabPanel>
-                <GamersGet data={data} loading={loading} handleDelete={handleDelete}/>
+                <GamersGet link={'videoCards'} data={data} loading={loading} handleDelete={handleDelete}/>
 				</TabPanel>
 				<TabPanel>
-                <GamersGet data={data} loading={loading} handleDelete={handleDelete}/>
+                <GamersGet link={'monitors'} data={data} loading={loading} handleDelete={handleDelete}/>
 				</TabPanel>
 			</TabPanels>
 			</Tabs>

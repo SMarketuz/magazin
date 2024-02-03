@@ -38,7 +38,7 @@ export default function Shop() {
                         <Box>
                             {/* 1 */}
                             <Box display='flex' alignItems='center' justifyContent='space-around' textAlign='center' flexDirection={{ xl: 'inherit', md: 'inherit', base: 'column' }}>
-                                <img src={tv} alt="" />
+                                <img width='80px' src={tv} alt="" />
                                 <Text>Процессор Intel Core i5-10400F, Box (BX8070110400F)(BX8070110400F)</Text>
                                 <Box display='flex' alignItems='center' gap={2}>
                                     <Button onClick={mnus}>-</Button>

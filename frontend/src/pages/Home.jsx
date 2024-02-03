@@ -19,7 +19,7 @@ export default function Home() {
       <Container maxWidth="1460px">
         <Main />
       </Container>
-      <Footer/>
+      <Footer />
     </Box>
   );
 }
