@@ -47,7 +47,7 @@
 
 .card_child .swiper-button-prev {
   position: absolute !important;
-  top: 80px !important;
+  top: 20px !important;
   transform: translateX(400px);
   font-size: 0px !important;
   z-index: 999 !important;
@@ -55,25 +55,25 @@
 
 .card_child .swiper-button-next {
   position: absolute !important;
-  top: 80px !important;
-  transform: translateX(-120px);
+  top: 20px !important;
+  transform: translateX(-140px);
   z-index: 999 !important;
 }
 
 .card_child .swiper-pagination-fraction {
-  transform: translateX(40px) !important;
-  top: 70px !important;
+  transform: translateX(30px) !important;
+  top: 10px !important;
   position: absolute !important;
   z-index: 10 !important;
 }
 
 @media (max-width: 800px) {
   .card_child .swiper-button-prev {
-    transform: translateX(360px);
+    transform: translateX(370px);
   }
 
   .card_child .swiper-button-next {
-    transform: translateX(-160px);
+    transform: translateX(-175px);
   }
 
   .card_child .swiper-pagination-fraction {

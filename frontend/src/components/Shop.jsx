@@ -29,7 +29,7 @@ export default function Shop() {
             <Box display={{ xl: 'none', md: 'none', base: 'block' }}><FiShoppingCart size={35} onClick={onOpen} color='white' style={{ cursor: 'pointer' }} /></Box>
 
 
-            <Modal isOpen={isOpen} onClose={onClose} size='100%'>
+            <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>Savat</ModalHeader>

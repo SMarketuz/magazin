@@ -52,7 +52,7 @@
 .texts {
   overflow-y: scroll;
   height: 600px;
-  /* box-shadow:   inset 0px -40px 8px -10px #ebebeb;  */
+  /* box-shadow:   inset 0px -30px 8px -10px #b0b0b06f;  */
 }
 
 .texts::-webkit-scrollbar {
