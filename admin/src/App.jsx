@@ -12,6 +12,7 @@ import UpdateCategory from './page/updateCategory'
 import CategoryForGamers from './page/CategoryForGamers'
 import CategoryForGamersGet from './page/CategoryForGamersGet'
 import UpdateGamers from './page/updateGamers'
+import Home from './page/home'
 
 function App() {
   const [username, setUsername] = useState('');
@@ -66,7 +67,7 @@ function App() {
         <SidebarForAdmin />
         
         <Routes>
-          {/* <Route path='/' element={<Home />} /> */}
+          <Route path='/' element={<Home />} />
           <Route path='/admin/topProduct-add' element={<AddTopProduct />} />
           <Route path='/admin/topProduct-get' element={<GetTopProduct />} />
           <Route path='/admin/users' element={<Users />} />
