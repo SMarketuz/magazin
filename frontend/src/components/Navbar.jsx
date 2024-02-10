@@ -33,7 +33,7 @@ export default function Navbar() {
     return (
         <Box width='100%'>
             {/* for blue  */}
-            <Box display={{ xl: 'flex', md: 'flex', base: 'none' }} width='100%' alignItems='center' justifyContent='space-between' px={{xl:'125px', md:'0', base:'0'}} py='10px' bg='#060F42' color='white'>
+            <Box display={{ xl: 'flex', md: 'flex', base: 'none' }} width='100%' alignItems='center' justifyContent='space-between' px={{ xl: '125px', md: '0', base: '0' }} py='10px' bg='#060F42' color='white'>
                 <Box display='flex' alignItems='center' gap='30px'>
                     <FaBarsStaggered size={30} onClick={onOpen} ref={btnRef} style={{ cursor: 'pointer' }} />
                     <Link to='/'><Text>Bosh Saxifa</Text></Link>
@@ -54,7 +54,7 @@ export default function Navbar() {
             </Box>
 
             {/* for navbar  */}
-            <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px={{xl:'110px', md:'0', base:'0'}} justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
+            <Box display={{ md: 'flex', base: 'none' }} boxShadow=' 0px 4px 4px 0px rgba(0, 0, 0, 0.09)' alignItems='center' px={{ xl: '110px', md: '0', base: '0' }} justifyContent='space-evenly' paddingBottom='20px' mt='20px'>
                 <img src={logo} alt="" />
                 <Button display="flex" alignItems='center' bg='#06A56C' color='white' padding='9px 12px' gap={4} fontSize={{ xl: '18px', md: '15px', }} className="catalogbtn" border='none'><Text display={{ xl: 'block', md: 'none' }}>Tovarlar Bo'limi</Text><GrAppsRounded size={20} /></Button>
                 <Box display='flex' alignItems='center' border='1px solid gray' >
@@ -91,8 +91,9 @@ export default function Navbar() {
             <Box>
                 <Box bg='#060F42' display={{ md: 'none', base: 'flex' }} flexDirection='column' padding='20px' gap='20px'>
                     <Box display={{ md: 'none', base: 'flex' }} alignItems='center' color='white' justifyContent='space-around' onClick={hidewinp}>
-                        <FaBarsStaggered ref={btnRef} onClick={onOpen} size={30} style={{cursor:'pointer'}} />
-                        <img src={logo} alt="" />
+                        <FaBarsStaggered ref={btnRef} onClick={onOpen} size={30} style={{ cursor: 'pointer' }} />
+                        {show ? <Link><img src={logo} alt="" /></Link> :
+                            <Link to='/'><img src={logo} alt="" /></Link>}
                         <FaPhoneVolume size={30} />
                     </Box>
                     {show ?

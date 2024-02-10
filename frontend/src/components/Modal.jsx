@@ -1,23 +1,32 @@
-import { Box, Button, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Button, Text, useDisclosure } from '@chakra-ui/react'
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+  } from '@chakra-ui/react'
 
-export default function Modal() {
+const ModalForGamers = ({text}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    return (
-        <Box>
-            <Button bg='#06A56C' onClick={onOpen} color='white' _hover='none'>To'liq Malumot</Button>
+  return (
+    <Box>
+         <Text onClick={onOpen} fontSize={'15px'} cursor='pointer' color='#01579B'>To'liq Ma'lumot</Text>
 
             <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Modal Title</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        h
-                    </ModalBody>
-                </ModalContent>
+            <ModalOverlay />
+            <ModalContent>
+                <ModalHeader>Ma'lumot</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                {text}
+                </ModalBody>
+            </ModalContent>
             </Modal>
-
-        </Box>
-    )
+    </Box>
+  )
 }
+
+export default ModalForGamers

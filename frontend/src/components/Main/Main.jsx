@@ -53,6 +53,9 @@ export default function Main() {
             <Box display='flex' alignItems='center' justifyContent='center' overflow='hidden'>
                 <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'} flexDirection={{ xl: 'inherit', md: 'column', base: 'column' }} width={{ md: '729px', base: '100%' }} className='card_child'>
                     <Box borderRight='1px solid gray' className='border' padding='10px' >
+                        <Box>
+                            <Text fontSize='27px' pb='40px' fontWeight='700' textAlign={{ md: 'start', base: 'center' }}>Izohlar</Text>
+                        </Box>
                         <Swiper
                             style={{
                                 "--swiper-navigation-size": "30px"
@@ -66,7 +69,7 @@ export default function Main() {
 
                             <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'} w={{ md: '480px', base: '100%' }} >
                                 <SwiperSlide>
-                                    <Text fontSize='27px' pb='40px' fontWeight='700' textAlign={{ md: 'start', base: 'center' }}>Izohlar</Text>
+
                                     <Box>
                                         {/* for coment  */}
                                         <Box>
@@ -91,7 +94,6 @@ export default function Main() {
                                     <Box>
                                         {/* for coment  */}
                                         <Box>
-                                            <Text fontSize='27px' pb='40px' fontWeight='700' textAlign={{ md: 'start', base: 'center' }}>Izohlar</Text>
                                             <Box display={'flex'} gap='10px' flexDirection={{ md: 'inherit', base: 'column' }} alignItems={{ md: 'start', base: 'center' }} justifyContent='center'>
                                                 <img src={avatar} alt="" />
                                                 <Box>
@@ -109,12 +111,11 @@ export default function Main() {
                                     </Box>
 
                                 </SwiperSlide>
-                                
+
                                 <SwiperSlide>
                                     <Box>
                                         {/* for coment  */}
                                         <Box>
-                                            <Text fontSize='27px' pb='40px' fontWeight='700' textAlign={{ md: 'start', base: 'center' }}>Izohlar</Text>
                                             <Box display={'flex'} gap='10px' flexDirection={{ md: 'inherit', base: 'column' }} alignItems={{ md: 'start', base: 'center' }} justifyContent='center'>
                                                 <img src={avatar} alt="" />
                                                 <Box>

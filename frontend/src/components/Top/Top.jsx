@@ -8,8 +8,8 @@ import { FaRegHeart, FaStar } from 'react-icons/fa';
 import { FaArrowRightLong } from "react-icons/fa6";
 import axios from 'axios';
 import { api } from '../../api';
-import Skeleton from '../skeleton';
 import { Link } from 'react-router-dom';
+import Loading from '../skeleton';
 
 
 export default function Top() {
@@ -45,12 +45,12 @@ export default function Top() {
     <Box mt={{ md: '90px', base: '0' }}>
       <Box display='flex' alignItems={{ md: 'center', base: 'start' }} mt={{ md: '0', base: '70px' }} mb='40px' flexDirection={{ md: 'inherit', base: 'column' }} justifyContent='space-between' >
         <Text fontSize='40px' fontWeight='700'>Top Mahsulotlar</Text>
-        <Link to='/product'><Text color='#01579B' display='flex' alignItems='center' gap={2} fontWeight='500' >Смотреть все товары<FaArrowRightLong /></Text></Link>
+        <Link to='/products'><Text color='#01579B' display='flex' alignItems='center' gap={2} fontWeight='500' >Смотреть все товары<FaArrowRightLong /></Text></Link>
       </Box>
 
       {/* swipper 1 */}
       <center>
-        {loader ? <Skeleton size={'300px'} height={'380px'} /> :
+        {loader ? <Loading size={'300px'} height={'380px'} /> :
           <Box mb={{ md: '20px', base: '70px' }} display='flex' alignItems='center' justifyContent='space-between' overflowX='scroll' className='thin' w='100%'>
             {/* 1 */}
             {data.slice(0, 4).map((item) => (

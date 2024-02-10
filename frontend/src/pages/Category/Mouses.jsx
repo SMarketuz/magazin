@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Card, CardBody, CardFooter, Heading, Image, Img, Stack, Text } from '@chakra-ui/react'
+import { Badge, Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, CardFooter, Heading, Image, Img, Stack, Text } from '@chakra-ui/react'
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -16,16 +16,16 @@ export default function Mouses() {
   const [data, setData] = useState([])
   const toast = useState()
 
-  useEffect(() =>{
-    axios.get(`${api}api/mouses/get-data`,{
+  useEffect(() => {
+    axios.get(`${api}api/mouses/get-data`, {
       headers: {
         "ngrok-skip-browser-warning": true,
         "Access-Control-Allow-Origin": "*",
       }
     })
-    .then((res) =>{
-      setData(res.data)
-    })
+      .then((res) => {
+        setData(res.data)
+      })
   }, [api])
 
   const handleBuy = () => {
@@ -40,8 +40,18 @@ export default function Mouses() {
   console.log(data);
   return (
     <Box>
-        <Navbar/>
-        <Box mt={20} >
+      <Navbar />
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <BreadcrumbLink href='/'>Bosh Saxifa</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink>Kursorlar</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
+
+      <Box mt={20} >
         <Text fontSize='28px' fontWeight='600' color='#333'>Sichqoncha</Text>
         <Swiper
           slidesPerView={1}
@@ -72,10 +82,10 @@ export default function Mouses() {
               <Box display='flex' flexDirection='column' gap={4} width='302px' padding='10px' mb='2px' boxShadow=' rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;'>
                 <Box display='flex' alignItems='center' justifyContent='space-between'>
                   <Box display='flex' alignItems='center' w='100%' justifyContent='end' gap={2}>
-                    <FaRegHeart  size={30} style={{ color: 'red', position:'absolute', marginTop:'70px', zIndex:'999' }} />
+                    <FaRegHeart size={30} style={{ color: 'red', position: 'absolute', marginTop: '70px', zIndex: '999' }} />
                   </Box>
                 </Box>
-                <Img src={item.image} height='300px' objectFit='cover' position='relative'  />
+                <Img src={item.image} height='300px' objectFit='cover' position='relative' />
                 <Box textAlign='start'>
                   <Text fontSize='20px' color='#333' fontWeight='500'>{item.name}</Text>
                   <Text fontSize='14px' color='#999' fontWeight='400'>Sharhlar: 0</Text>
@@ -85,7 +95,7 @@ export default function Mouses() {
                   <Box textAlign={'start'}>
                     <Text color='#060F42' fontSize='18px' fontWeight='700'>{item.cost}</Text>
                   </Box>
-                  <Modal/>
+                  <Modal />
                   <Button bg='#06A56C' onClick={handleBuy} color='white' _hover='none'>Xarid Qilmoq</Button>
                 </Box>
               </Box>
@@ -93,7 +103,7 @@ export default function Mouses() {
           </Box>
         </Swiper>
       </Box>
-        <Footer/>
+      <Footer />
     </Box>
   )
 }

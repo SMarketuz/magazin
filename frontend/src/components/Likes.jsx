@@ -28,7 +28,7 @@ export default function Likes() {
         <Box>
             <Box display={{ xl: 'block', md: 'block', base: 'none' }}><FaRegHeart size={35} onClick={onOpen} style={{ cursor: 'pointer' }} /></Box>
 
-            <Modal isOpen={isOpen} onClose={onClose} size='100%'>
+            <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>Yoqtirganlar: 2</ModalHeader>
